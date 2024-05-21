@@ -117,15 +117,18 @@ def add_common_user_data(common_data):
 
     # Verificar unicidade de 'username', 'mobile_number' e 'email'
     cur.execute('SELECT username FROM person WHERE LOWER(username) = LOWER(%s)', (username,))
-    if cur.fetchone():
+    result = cur.fetchone()
+    if result is not None:
         return {"msg": "Username already exists"}, 400
 
     cur.execute('SELECT mobile_number FROM person WHERE mobile_number = %s', (mobile_number,))
-    if cur.fetchone():
+    result = cur.fetchone()
+    if result is not None:
         return {"msg": "Mobile number already exists"}, 400
 
     cur.execute('SELECT email FROM person WHERE email = %s', (email,))
-    if cur.fetchone():
+    result = cur.fetchone()
+    if result is not None:
         return {"msg": "Email already exists"}, 400
 
     hashed_password = generate_password_hash(password)
@@ -181,20 +184,21 @@ def add_employee_contract_data(username, contract_data):
 ##########################################################
 def contract_check(username, contract_data):
     success, error = add_employee_contract_data(username, contract_data)
-
-    # Remover o 'user' da tabela 'person' se a inserção do contrato falhar
-    db = db_connection()
-    cur = db.cursor()
-    try:
-        cur.execute('DELETE FROM person WHERE LOWER(username) = LOWER(%s)', (username,))
-        db.commit()
-    except Exception as e:
-        db.rollback()
-        return jsonify({"msg": str(e)}), 500
-    finally:
-        cur.close()
-        db.close()
-    return jsonify({"msg": error}), 500
+    if not success:
+        # Remover o 'user' da tabela 'person' se a inserção do contrato falhar
+        db = db_connection()
+        cur = db.cursor()
+        try:
+            cur.execute('DELETE FROM person WHERE LOWER(username) = LOWER(%s)', (username,))
+            db.commit()
+        except Exception as e:
+            db.rollback()
+            return {"msg": str(e)}, 500
+        finally:
+            cur.close()
+            db.close()
+        return {"msg": error}, 500
+    return None
 
 
 ##########################################################
@@ -248,7 +252,9 @@ def register_assistant():
 
     # Adicionar os dados do contrato do assistente
     contract_data = data.get('contract', {})
-    contract_check(username, contract_data)
+    contract_error = contract_check(username, contract_data)
+    if contract_error:
+        return jsonify(contract_error), 500
 
     db = db_connection()
     cur = db.cursor()
@@ -388,7 +394,7 @@ def login():
     db.close()
 
     # Verificar se o user existe e se a password está correta
-    if user and check_password_hash(user[0], password):
+    if user is not None and check_password_hash(user[0], password):
         access_token = create_access_token(identity=username)
         return jsonify(access_token=access_token), 200
     else:
@@ -409,8 +415,37 @@ def protected():
 # SCHEDULE APPOINTMENT
 ##########################################################
 
-# Make all endpoints
-# ...
+##########################################################
+# SEE APPOINTMENTS
+##########################################################
+
+##########################################################
+# SCHEDULE SURGERY
+##########################################################
+
+##########################################################
+# GET PRESCRIPTIONS
+##########################################################
+
+##########################################################
+# ADD PRESCRIPTIONS
+##########################################################
+
+##########################################################
+# EXECUTE PAYMENT
+##########################################################
+
+##########################################################
+# LIST TOP 3 PATIENTS
+##########################################################
+
+##########################################################
+# DAILY SUMMARY
+##########################################################
+
+##########################################################
+# GENERATE A MONTHLY REPORT
+##########################################################
 
 
 if __name__ == '__main__':
