@@ -177,6 +177,27 @@ def add_employee_contract_data(username, contract_data):
 
 
 ##########################################################
+# REMOVER COMMON DATA IF CONTRACT DATA HAS ERRORS
+##########################################################
+def contract_check(username, contract_data):
+    success, error = add_employee_contract_data(username, contract_data)
+
+    # Remover o 'user' da tabela 'person' se a inserção do contrato falhar
+    db = db_connection()
+    cur = db.cursor()
+    try:
+        cur.execute('DELETE FROM person WHERE LOWER(username) = LOWER(%s)', (username,))
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        return jsonify({"msg": str(e)}), 500
+    finally:
+        cur.close()
+        db.close()
+    return jsonify({"msg": error}), 500
+
+
+##########################################################
 # ADD PATIENT
 ##########################################################
 @app.route('/dbproj/register/patient', methods=['POST'])
@@ -227,23 +248,7 @@ def register_assistant():
 
     # Adicionar os dados do contrato do assistente
     contract_data = data.get('contract', {})
-    contract_data['username'] = username
-
-    success, error = add_employee_contract_data(username, contract_data)
-    if not success:
-        # Remover o 'user' da tabela 'person' se a inserção do contrato falhar
-        db = db_connection()
-        cur = db.cursor()
-        try:
-            cur.execute('DELETE FROM person WHERE LOWER(username) = LOWER(%s)', (username,))
-            db.commit()
-        except Exception as e:
-            db.rollback()
-            return jsonify({"msg": str(e)}), 500
-        finally:
-            cur.close()
-            db.close()
-        return jsonify({"msg": error}), 500
+    contract_check(username, contract_data)
 
     db = db_connection()
     cur = db.cursor()
@@ -285,23 +290,7 @@ def register_nurse():
 
     # Adicionar os dados do contrato do enfermeiro
     contract_data = data.get('contract', {})
-    contract_data['username'] = username
-
-    success, error = add_employee_contract_data(username, contract_data)
-    if not success:
-        # Remover o 'user' da tabela 'person' se a inserção do contrato falhar
-        db = db_connection()
-        cur = db.cursor()
-        try:
-            cur.execute('DELETE FROM person WHERE LOWER(username) = LOWER(%s)', (username,))
-            db.commit()
-        except Exception as e:
-            db.rollback()
-            return jsonify({"msg": str(e)}), 500
-        finally:
-            cur.close()
-            db.close()
-        return jsonify({"msg": error}), 500
+    contract_check(username, contract_data)
 
     db = db_connection()
     cur = db.cursor()
@@ -340,8 +329,6 @@ def register_doctor():
     doctor_license = data.get('license_info', None)
     if not doctor_license:
         return jsonify({"msg": "Missing required field: position"}), 400
-    if not str(doctor_license).isdigit():
-        return jsonify({"msg": "Doctor license must contain only digits"}), 400
 
     specializations = data.get('specializations_ids', [])
     if not specializations:
@@ -352,23 +339,7 @@ def register_doctor():
 
     # Adicionar os dados do contrato do médico
     contract_data = data.get('contract', {})
-    contract_data['username'] = username
-
-    success, error = add_employee_contract_data(username, contract_data)
-    if not success:
-        # Remover o 'user' da tabela 'person' se a inserção do contrato falhar
-        db = db_connection()
-        cur = db.cursor()
-        try:
-            cur.execute('DELETE FROM person WHERE LOWER(username) = LOWER(%s)', (username,))
-            db.commit()
-        except Exception as e:
-            db.rollback()
-            return jsonify({"msg": str(e)}), 500
-        finally:
-            cur.close()
-            db.close()
-        return jsonify({"msg": error}), 500
+    contract_check(username, contract_data)
 
     db = db_connection()
     cur = db.cursor()

@@ -294,3 +294,14 @@ INFO:werkzeug:127.0.0.1 - - [21/May/2024 14:27:18] "[35m[1mPOST /dbproj/regist
 INFO:werkzeug:127.0.0.1 - - [21/May/2024 14:27:44] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
 INFO:logger:API v1.0 online: https://127.0.0.1:8080
 INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:01:58] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:02:22] "[35m[1mPOST /dbproj/register/nurse HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:02:25] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
