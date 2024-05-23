@@ -1,0 +1,421 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:07:36] "[33mGET /departments/ HTTP/1.1[0m" 404 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:logger:GET /departments
+DEBUG:logger:GET /departments - parse
+DEBUG:logger:(Decimal('10'), 'Contabilidade', 'Condeixa')
+DEBUG:logger:(Decimal('20'), 'Investigacao', 'Mealhada')
+DEBUG:logger:(Decimal('30'), 'Vendas', 'Coimbra')
+DEBUG:logger:(Decimal('40'), 'Planeamento', 'Montemor')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:08:03] "GET /departments/ HTTP/1.1" 200 -
+INFO:logger:GET /departments
+DEBUG:logger:GET /departments - parse
+DEBUG:logger:(Decimal('10'), 'Contabilidade', 'Condeixa')
+DEBUG:logger:(Decimal('20'), 'Investigacao', 'Mealhada')
+DEBUG:logger:(Decimal('30'), 'Vendas', 'Coimbra')
+DEBUG:logger:(Decimal('40'), 'Planeamento', 'Montemor')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:08:33] "GET /departments/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:08:37] "[32mGET /departments/10 HTTP/1.1[0m" 308 -
+INFO:logger:GET /departments/<ndep>
+DEBUG:logger:ndep: 10
+DEBUG:logger:GET /departments/<ndep> - parse
+DEBUG:logger:(Decimal('10'), 'Contabilidade', 'Condeixa')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:08:37] "GET /departments/10/ HTTP/1.1" 200 -
+INFO:logger:GET /departments
+DEBUG:logger:GET /departments - parse
+DEBUG:logger:(Decimal('10'), 'Contabilidade', 'Condeixa')
+DEBUG:logger:(Decimal('20'), 'Investigacao', 'Mealhada')
+DEBUG:logger:(Decimal('30'), 'Vendas', 'Coimbra')
+DEBUG:logger:(Decimal('40'), 'Planeamento', 'Montemor')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:10:06] "GET /departments/ HTTP/1.1" 200 -
+INFO:logger:POST /departments
+DEBUG:logger:POST /departments - payload: {'ndep': 100, 'localidade': 'Polo II', 'nome': 'Informatica'}
+ERROR:logger:POST /departments - error: numeric field overflow
+DETAIL:  A field with precision 2, scale 0 must round to an absolute value less than 10^2.
+
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:10:52] "POST /departments/ HTTP/1.1" 200 -
+INFO:logger:GET /departments
+DEBUG:logger:GET /departments - parse
+DEBUG:logger:(Decimal('10'), 'Contabilidade', 'Condeixa')
+DEBUG:logger:(Decimal('20'), 'Investigacao', 'Mealhada')
+DEBUG:logger:(Decimal('30'), 'Vendas', 'Coimbra')
+DEBUG:logger:(Decimal('40'), 'Planeamento', 'Montemor')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:11:43] "GET /departments/ HTTP/1.1" 200 -
+INFO:logger:PUT /departments/<ndep>
+DEBUG:logger:PUT /departments/<ndep> - payload: {'localidade': 'Figueira da Foz'}
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:11:54] "PUT /departments/100 HTTP/1.1" 200 -
+INFO:logger:GET /departments
+DEBUG:logger:GET /departments - parse
+DEBUG:logger:(Decimal('10'), 'Contabilidade', 'Condeixa')
+DEBUG:logger:(Decimal('20'), 'Investigacao', 'Mealhada')
+DEBUG:logger:(Decimal('30'), 'Vendas', 'Coimbra')
+DEBUG:logger:(Decimal('40'), 'Planeamento', 'Montemor')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:14:14] "GET /departments/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:14:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:logger:GET /departments
+DEBUG:logger:GET /departments - parse
+DEBUG:logger:(Decimal('10'), 'Contabilidade', 'Condeixa')
+DEBUG:logger:(Decimal('20'), 'Investigacao', 'Mealhada')
+DEBUG:logger:(Decimal('30'), 'Vendas', 'Coimbra')
+DEBUG:logger:(Decimal('40'), 'Planeamento', 'Montemor')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:14:21] "GET /departments/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:14:47] "[33mPOST /hms/register/patient HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:15:02] "[33mGET /dbproj/register/assistant HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:20:29] "[33mPOST /hms/appointment HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 20:25:25] "[33mPOST /hms/prescription/ HTTP/1.1[0m" 404 -
+INFO:logger:API v1.0 online: http://127.0.0.1:8080
+INFO:logger:API v1.0 online: http://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:23:03] "[33mGET /hms/ HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:23:12] "[33mGET /HMS/ HTTP/1.1[0m" 404 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:38] code 400, message Bad request version ('\x08\x82"¢]³')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:38] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03­ 7¸\x83\x03ñ2ò(ÃD\x1dk)KÂÂ¶~Y(\x05ÆßÀWÓP\x1eæ² \x13ú¯$H3õDr3&\x13AIO@ó\x16\x07ÎÄðc´núUÍ\x8d\x0b"f\x00 ªª\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06SÚÚ\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00+\x00\x07\x06\x8a\x8a\x03\x04\x03\x03\x00#\x00\x00\x00\x0b\x00\x02\x01\x00\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x003\x04ï\x04íêê\x00\x01\x00c\x99\x04À?\x9aÍ"¢ä\x1f\x9b\x8eèÄTÂN\x1dzÿ\x11\x95\x80\\3ªF8ÇäÓ»\x1b\x84\x1e±W{Ê%~ÝjGjw\x90\x9f\x16¤E\x1a¡Y\x82\x9cÜ\x86\x8bu3\x00#³M\x82¤6Õê\x0f§ù©p£cJiM"È­\x99\x07¶õ\x13_@\x09GÖ\x97-^YG}¹\x88\x19¡\x904\x86¿>%)\x1c\x18\x9fíå\x9f:I°Æ+É×\x0c\x13\x08WOæã$6\x06löä\x17ç!Ë   yå25¸\x95$¡KZ\x05Çfà\x8f½&Èðéj\x83\x90¯i\x82\x8bÓ\x0c»Å\x8a3såPÉ¹\x8b¬+\x96c\x1b\x0f\x0bÑÇ\x96¡=\x09ç7ª)o;t6\x15s|3&\x19ÙëL<\x93:\x1dñgà\x04\x81s\x0bR\x13ñdqYÌ>\x075@Âf\x9fç\x05ç\x09\x98\x9e¨Ro<7\x91\x03\x08Ê3I%\x076E\x8a¾1T(u\x02\x0fº\x87FV|\x13}·~&g¼]v\x13\x98\x93.qUÈìt\x1c\\\x02\x9fï\x9aµ\x06ÑÊO¸pRI@¬°\x9ap{aEåÏ\x96\x9cd-\x1aIWU1¸\x80\x11\x08\x96\x11(§«+%R\x80±Ë\x07I°\x8eF\x95\x16l=" o:û\x07¢Â³é\x99Y\x0f³\x01\x18«$\x8eaE\x146\x12EUC(\x9c\x10­2?_¦Ä\x97s\x08<±·Ñ&´"3­Qb\x93(a+£À\x8a\x8dØ\x1fx\x84©iç¿úöÁc\x1b}\x18·\x8f\x18\x08\x89\x08I*c\x057eÖ\x11\x15JZ\x1bª|;¥\x15½|\x82¬\x9b"ç(\x97\x15\x8c½÷;¶¯â9m¶\x0bYI`\x9aÜ§Áfwk¼?¤B\x93\x10\x84\x9c\x96§¦\x13\x90\x0ey\x11É2)uÝä\x11Ûd\x17\x1fµp\x19\x86Ïb\x94*ð¥'~<=\x92\x04ºùW\x14\x1c\x89Î\x15jFh«¥\x00\x04¡\x8f[­#`¾TÐA^R=\x07\x9cmõ\x8b\x8aY°?Æð¦Hº¶OÒÀÛðjNºQ\x122'¾+¤è5PPk\x86¬1´®rb6\x8b àU\x92åÀ¢D\x80ya\\¡µ\x95¡æÙbÌð\x11\x16z\x0e\x08Ã?ùKv5ÔÈ}73-¶¶·Ë\x9dª\x16D\x82\x003n¶p¡F\x83\x0eãjdS\x0c\x93{+Zi\x01$È²Me\x1d¦$\x1a\x90bÃµ5 ´·i´%\x90*\x01I,\x1bn2±¤]à\x9bèk^n\x8bÅéÙ\x96ÔòÊU\x86ÀxÂÊ\x98 ¼éú^Ó¹\x01çi¤\x0bÃ\x02¦p§\x80$ \x81ØSûas»¥ªÈ9+ÓZYqÉr©\x01%¾ ³àT\x9c@ó¸ÃÛ\x12PG\x7fÜµ\x8cïð}ñ\x1c\x93/U\x9dºúS0·[Kõ\x1b²\x88§¤\x03\x9d·àrÄÌXm\x90Jè2\x15_\x91Â\x1aw®\x8f\x88lÇT\x0d¨B\x19\x17çÊ\x13\x97Á;\x19\x0cH7Eö\x04\x99(*¸ß¦rÆ\x15³äÕK\x9eÜ\x1fJ\x08h\x07K¢\x90¶\x9d\x84¨¼S6\x02\x0c\x0co\x8e\x14wø´Hv\x93\x0b\x89\x12\x04\x05\x87\x97\x1b\x12\x95Nu\x82Qö±îvOò \x13\x19ð\x03*ç¯3u\x1bXô)\x91\x91¤\x02ì\x0c¹\x00¯õÙR\x16«¥OÔ¹\x02\x90Y\x99ú~\x94¥@:¨XÁ\x900]u\x95teS\x0bªg\x1cüYWhJë\x10\x08Q\x92\x98ì°²õµ-~\x00?ú0µ7\x12\x17,6P\x01\x80eáÂ¹W\x92\x89Bj­l·%\x8bv\x18°j\x16¿³¸\x0b\x18W£X!Ñ\x09TJHu\x95y\x98\x93tÍù1¹Úi\x08íK½QË#\x1c¢vÿ\x90O½ÑR6³)\x83!lýI®}x=yåsR\x03\x8bW\\5\x00M$\x1d7¯Þz¾^r.\x95\x8a\x19Ri\x7f0I²\x9cúa\x98\x09\x08\x82"¢]³[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:38] code 400, message Bad request version ('ÕBTØ\x97\x87')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:38] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03\x1b#K\x05¿\x96òè\x19Uxä¶j\x9dÁ,%\x04R\x1e%g-Ñ\x1föí²ÙOØ Æ?kÆ\x84\x13ã\x08\x99È\x08\x92{Ö-p´\x1d§û·BCt\x97_<Çèg¢\x1f\x00 úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063\x9a\x9a\x00\x00\x003\x04ï\x04íÚÚ\x00\x01\x00c\x99\x04À \x93Îá\x96\x97'ó^ "øÛy\x9ej2Ç\x9bæQ°tØp5\x9bÌ¹\x9aî])2[f²$\x83hj\x1e \x12\x13Ãº\x95\x99\x87t\x99Èöx.pèy·\x82{u<\x92/Ö\x0b\x1e ³\x8fy%\x8b¡m\x1b(\\\x80µ$ÿR\x1eg¶¹_t\x89Gs\x98+Ä\x171¥vHö\x06\x88:±z\x80yEù¹©\x84\\]uµ\x82õ\x9bFô¶âÐ\x0d\x15\x85\x8a?9Ç\x11¶mQpjõâ£\x99W\x97\x10\x82;JL\x02sã+\x93\x1a/\x9d\x92_éKJ\\ç}û´*{Û\x98OJ\x0d¿¸¥·\x95/3\x8a©Kå~D1¤¡E\x902u$á8,­¸\x91TÆÄ²\x1aB3Óy~#'ç¼\x09÷\x9cX\x9f¥LOÆRÈ\x84mP©Zp\x97nM\x13\x17.Ö¤'H\x15\x1e¡T$aA\x03\x87´Á6\x9bÚ\x05\x13\x0bÕBTØ\x97\x87[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:38] code 400, message Bad request version ('¼ªËÚ·')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:38] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03Þuû>`¤É\x85Ýc°WÒ\x1fw$ÄÊ\\Å\x93` :­W®©¦ºQ¹ ¼ªËÚ·[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:38] code 400, message Bad request version ('~JË\x12\x84A\x14C]|\x7fn')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:38] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03ú\x9cF»a\x8föêg$îfUð³\x84ØXÛ\x01õ¸=óWÔ¢5VÅxA \x00\x7f\x8bð\x92ÛÍÓ®\x95*Ñ¡»í ±\x09ç\x82ªN\x08\x82\x9b®ûp&\x98\x9dþ\x00 **\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063ÊÊ\x00\x00Di\x00\x05\x00\x03\x02h2þ\x0d\x00º\x00\x00\x01\x00\x01©\x00 Áoø\x92\x98È¥þÄ½E#²v¸ÆùÎ¯ø¼9Òe>\x8a\\W×Ë\x13\x0f\x00\x90\x8e¹\x9c»}O0ùä\x8bî\x05ç¬¤¸\x14FRð\x02\x09¢\x81=\x88\x8a-62\x0e\x05üd+¢ Íæ(õ¡\x85Ì`g\x1f)Ä\x10\x18=©¼g\x83Õ\x0c~JË\x12\x84A\x14C]|\x7fn[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:39] code 400, message Bad request version ('q')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:39] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03g`ÕW\x97#¨â\x15Â\x1b\x04\x03â\x12\x86ÎÌ&9ø$[sµ\x09a\x82¹\x16,¯ t{þ½=@GnwD\x84kïÄ<+\x95\x07ðx\x86&6g7rk¥T'`ü\x00 jj\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93ZZ\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00þ\x0d\x01\x1a\x00\x00\x01\x00\x01I\x00 #\x96\x9f"áÂûd\x9dðÜ\x86\x07\x02¿I\x94O\x9a6\x9fD\x03!\x10\x84tÃ\x04Ö×\x16\x00ðè3óç³Cå\x1exj\x8dõrÎÁëzÃ4æH¦\x7fF°V\x1cÌÆV\x9e²SQRÝä6 I\x9e`¬\x03¶\x10\x10\x09½àwÈ-æ\x17¾û" :\x14ëôÔ\x9b¾\x91\x98f\x09Y>T}%Mñe\x0du:©>±e\x0b\x95NBà¯de\x1eq[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:39] code 400, message Bad request version ('&\x9chÙ&&ÒÓk9Ç¨qPH´Õ\x99í\x12;jj\x86"\x02¶TÕt/ì:êwzÄ\x83\x7f\x8a\x05Ð¼EÎ4Á\x13\x04iÍ\x8cô.\x144\x15ÜÅ(á\x8b´±\x98\x9b¿2¥åæ7\x91óÍ\x8e')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:39] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03iµ8hr5ßz&¨^S¬ðE\x83S\x9d\x00FfÓS¨§*\x0ca×ÈÕ\x04 µz\x80oè\x1a~øC`²g\x0f5\x9b\x89±1ùòDÅë®\x9bÅÎµCwÜn\x00 úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06sÚÚ\x00\x00\x00-\x00\x02\x01\x01\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x003\x04ï\x04íZZ\x00\x01\x00c\x99\x04À}Tÿ&WÛÎ&;\x16D\x880æô¿?>Æ\x0bÏí\x9eÎ\x08-Â%#\x83åIû8L\x01Ç|\x93\x01\x1cõò6\x81¥?\x9còµ!¦yX!\x9dPzÌ/P0´¼I¤è]ëq|[23r\x18¹é\\²n\x97\x1f&\x9chÙ&&ÒÓk9Ç¨qPH´Õ\x99í\x12;jj\x86"\x02¶TÕt/ì:êwzÄ\x83\x7f\x8a\x05Ð¼EÎ4Á\x13\x04iÍ\x8cô.\x144\x15ÜÅ(á\x8b´±\x98\x9b¿2¥åæ7\x91óÍ\x8e[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:39] code 400, message Bad request version ("Ç¤Y*R{±,¤\x14ìÂÖÅª=Urç;\x17Ö\x93&Xù¬\x81ªÅí\x9b\x7f\x0eiÇ\x82\x13ze\x07\x07\x8dÒ\x82\x82X\x12\x96ÚZ;Cc2'h~Y")
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:39] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03?Æd\x15O:L\x02\x97\x12æn\x96\x07\x85\x9bn\x94äÏ«ÁäwGÏý¼\x98Y\x8dy +É\x9e ¶KöÞtØ:}\x8f]\x95h'\x8cõJ[ðF\x16©ò5àWÔ9Q\x00 jj\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93êê\x00\x00\x00+\x00\x07\x06\x9a\x9a\x03\x04\x03\x03þ\x0d\x01\x1a\x00\x00\x01\x00\x01X\x00 !ÍqIã\x83×çP\x1e2³µd!;f£¸<Ã\x9cÒ\x10Z\x1bJåes#$\x00ð2níKiu\x8fVÍQ¨\x93oób¯1Ì¹Ð\x02\x8b\\¬iN#Fd>b¬\x06îàS\x07Å\x0c6 tf.ÝE\x08þ5·7G¬1\x9evne\x12\x9eT}¦.¸ÎT^\x10l²Îµ\x958\x95÷ËÇ7\x89eV®\x0fEõw?+$l[\x93©\x8b\x02!¼Ù\x95_úÉ°¶ÎØ=\x00Ñ~/\x8e\x9a\x92(\x90·ÕSvÄ9\x14\x19PûCBMëè`Ô²\x16}8ü×ù\x1c8G¹S\x8eÔ\x1apû\x1f,_\x81Ê©8:´Úw\x8eP\x83æàZ&a¾¸a%\x15-ý¾°\x06\x076\x93iÝ\x08ØR\x09v\x82\x14hÏ¢\x84\x9b\x96 !\x96Ó\x97:\x1f¢\x02ÝÚ¯3}N\x04U´þSü¯Ç\x81Ü\x88\x84\x0dYÃB\x07\x95\x90Ö[¸TW@<\x003\x04ï\x04íjj\x00\x01\x00c\x99\x04À\x93m \x02´½6^ð},&ÊÏõÛW\x87jî4ÒoÖØ\x9aQ\x8f\x16Â]DUÛq\x17éR"¼OW&ÈX§¢\x9aU\x80,öi¦Â\x99xì7?\x90¥eñ\x99E ²ø\x16Í\x1dÑ\x0c¿\x14U_w\x01Òì]ÈSq\x80\\{µ´dÁxª¼ûp\x94Â¬¼D°î#£Åe®E\x9a¼x\x01\x13Ê¦ÉÜñ\x0fÿXËR\x03\x0bHæ\x09ôÅe#t\x06nd\x92ç\x9a0DáGM¢5þ0Î_¨Ä\x01c'­\x9a7XõÆ'ö\x1cêª´\x10\x94\x82àË½\x89D\x09Ç¤Y*R{±,¤\x14ìÂÖÅª=Urç;\x17Ö\x93&Xù¬\x81ªÅí\x9b\x7f\x0eiÇ\x82\x13ze\x07\x07\x8dÒ\x82\x82X\x12\x96ÚZ;Cc2'h~Y[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:39] code 400, message Bad request version ('d\x10ð\x1aÌg\x01Ä?)Ë\x8cç\x10\\ì´Æ\x03;é[')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:39] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03î\x0ddòð\x88ÕjÏÑáNÄ\x04öu\x1124Nõv\x02\x9bØ1_\x8a\x03OE\x8f ºçÝ\x86¢¶À\x98~\x05^­'ÀrØTáH£RN-Ü\x8e'ìý¢\x8c\x0dH\x00 ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06súú\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01ÿ\x01\x00\x01\x00\x00\x17\x00\x00\x003\x04ï\x04íJJ\x00\x01\x00c\x99\x04À¼î¨\x00\x88n¯d8\x84»J×¤\x82\x07?\x0b©Ä>RÆôÜßPî\x95\x00åPÜã\x1afIWT!T`(\x19ÒÅh0"Ë\x13¨Å+\x04ZY4\x9e\x8fûoùÒ\x95ü\x94ºÒb¤=Aeßq\x80g¼\x97.S\x98D÷Fe£3d\x05\x05\x880\x88\x09é\x82¸É\x17\x8c@\x83HÃ´ÆK\x10Åø,\x11X\x85Rµ\x14å)¸µ°\x18ýcF¨\x89.òõuuçYàw\x09é¶\x89Õ\x8aO9ÅÃ\x08ñ,IPv\x97\x101¿£§»\x94©\x03l^ÔÚC\x9aéSQ X\x0c£B*i¯Nð\x9eßæ5;:ºæØ¦\x01ÙÀiâ\x94ø[$Â±¤}\\±\x9c\x98<´wO3ó;rÑ\x1aòw\x9e\x16(\x8a¹,S/l2ïª1¢ç\x10ùê\x88\x01Â/\x09d\x10ð\x1aÌg\x01Ä?)Ë\x8cç\x10\\ì´Æ\x03;é[[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:40] code 400, message Bad request version ('\x00\x02\x01\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:40] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03û\x1a\x19\x0b\x81Î\x85¨Ô\x80\x0dÿ\x01(ò\x14ãÐR\x9aá\x92ugÚÿÖÏ"9=\x8e z\x92ôXï\x87\x9f!+MÅµ(^BK¬¹RB2ºm\x06U\x95\x0b\x8aß\x92\x0c$\x00 jj\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06S::\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x0b\x00\x02\x01\x00\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:40] code 400, message Bad request version ('\x1a¦8©')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:40] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03\x1f\x966~¤Å3\x85·\x86®7>\x87¾gRæ\x02¡ñ\x1e\x97|\x069¯Wþ8ØÒ 3\x1fô\x95\x979Ø¥ó\x9d\x99\x95!\x84©&¼s\x9ddO\x83ÿ2Wh\x87\x02qsõÅ\x00 jj\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063::\x00\x00\x00\x17\x00\x00Di\x00\x05\x00\x03\x02h2\x00+\x00\x07\x06jj\x03\x04\x03\x03þ\x0d\x00º\x00\x00\x01\x00\x01ñ\x00 \x83|¼\x8dE©fR\x03½×$\x05P'óz`nYÏù¢<ñZ\x7føÍ\x1bO`\x00\x90½}\x929\x7f:ZÑ-ö\x0eæQGàbÐjV\\è÷;¡;\x94júq8\x9d¤`Áó\x9c\x8fÒc·JÎ\x0f£µ².cr{\x86\x8bÊÝ#?\x1emÉGó\x9bê\x93q¡WàÍI^iòQÛ.W°¶\x05Ò-²|W281Ë\x19Ôµ\x90ZÉCj\x08\x90Ý¦â\x19\x8frÅ\x8e\x99\x0fz^O¶úÜM¿?\x84àæTÑ¹Å\x86\x17\x1b >\x04ÒæÀ:\x8a§tü\x1c¹Y\x11L\x003\x04ï\x04íZZ\x00\x01\x00c\x99\x04ÀÑÏ½T<×n\x06Ã³ÈmS\x17äUÍ\x18¾=8]QÐ\x9f¨E\x06«;­R­\x8c\x1b\x87kT*\x0c\x1a¦8©[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:40] code 400, message Bad request version ("\x02k\x9c'>Ï}£")
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:40] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03ÅÇP\x95ñÒkz"\x00òjêp éÅ¤w\x9c\x0e\x96þÈ8W4\x19°-=Ö K-GTU>×«â\x83M°\x18>`Ô¹$ýZ"\x0b@\x8b¯W]0B\\ÖÉ\x00 \x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06sºº\x00\x00þ\x0d\x00ú\x00\x00\x01\x00\x01\x88\x00 uîð´Äu?å\x9f\x8eÐ\x97áç\x8b¤%\x09\x04µ\x1eEIl+@âò\x8d\x96,\x10\x00ÐÀýbkÅhù4Z\x81n\x09\x0fí´KBÙX[;!äÜ\x8bî]a?\x9a\x8e¦ø}Ë\x96J[éÚ\x01ÚÇÀª>\x84ä\x0cþØÙ\x81;Ô´ð\x99´\x87ê#\x9d6#¤s\x0cðG³\x89è\x98\x8a\x969h=_ï6ç¶ÖìyÏé¡;Á%Ù8¢K\x1bâ/£©\x95¥\x10\x8bf1\x88á\x87\x1c60Â·[Pí¶\x9bÚ\\ÿà|ñ.¹yô \x0eDL@xê\x85nF¹»H\x82åÕ-Ã3^í0õ\x84êf¥¤âÉãä\x1bíã\x03U\x1e\x02k\x9c'>Ï}£[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:40] code 400, message Bad request version ('VR\x00')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:40] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03\x07\x8fÕnë¬3j\\\x05C:\x96ãÞ\x0b\x80À\x00\x83\x86_°Al7B\x1bíÈÆ# »ßÊþ»iC`åqAãù_¢ÒZ(tÃ+ð6¡j\x9c\x98\x0f\x19\x85VR\x00 [0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:41] code 400, message Bad request version ('s\x10ñ?')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:41] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03\x05 ßÿ&3ÓKØk¢Ef¤á\x96\x0dÇ\x13ªÍ\x1cs\x10ñ?[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:41] code 400, message Bad request version ('\x88\x16')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:41] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03\x8b+z\x81©¿\x19\\)Î/8«\x19]\x03·.}\x09¶}\x9bD-\x87\x9cä\x8cü§4 \x06`\x1a»À÷9´ÓWPôëï\x96×ñÑ{ÏÿÊx\x0fj¡pò\x11p\x83\x86\x00 ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93**\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x12\x00\x00\x003\x04ï\x04í**\x00\x01\x00c\x99\x04À>£1ÏSS\x8c~À÷Ùù\x82 6Dç "²Õ\x1f\x8d\x06à\x8c\x15û\x98Ê\x93M×\x84w÷EZN©^\x87K\x08´öx\x84¶º{ÁTú\x01a\x95\x1c,\x96\x18\x97Ï6Ï\x8f\x9c\x19\x17¢\x82\x0c#\x18\x11X"r\\¾½È\x02\x86çÂ\x90ÉÏßÓÄa\x87\x95Ý\x14?òZ\x1fmÛ\x0fob¤\x92Ñ\x8c\x95\\\x11ä:\x02LB¹øÜY«5L-)¨4\x8a¤\x83\x8a,PSnÏR¼\x03{Z\x12ºÂØ°\x0d²\x90¼:9\x03\x90ì ÔÔ[\x02(v\x0eóºw\x9c\x1c\x07è¬\x06fUîº7\x88Ö\x80\x16v£î)rÞ,Ä\x8bYln\x10¦\x99\x96%ì,° 1Mòâ\x1bÉ\x00¤\x1f5ÄØÖSåÐ\x84-[4§\x8aÆÄìZ\x1cÀ\x88\x04F%@\x14\x04\x1bó\x1fù¸y²iO\x85»_î\x99BXÉ\x1a,i\x88,4\x01¼ð2Hé4ºñ`º·EÇ&wð@4C %\x94P\x9b&D¬8i\x14îâ\x80(fh½\x8cÄ\x89\x08)[Å.ò;\x0dÖ\x85\x88\x16[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:41] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00#\x00\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:41] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03ynåScI`è\x87¾²åmïó?à:å®ª\x85«_\x02\x91\x9bx¦[àê \x19²\x1c\x8dN\x1cãÀÇ\x06«\x07\x90ý¬\x7fÐ¢\x1e07¬9`Â<ï612¥n\x00 ZZ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93\x9a\x9a\x00\x00Di\x00\x05\x00\x03\x02h2\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00#\x00\x00\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:41] code 400, message Bad request version ('#¤{À')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:41] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03÷Ï\x12HGõténLqÜæy\x07\x13ñ%J\x0e\x07Ä\x85u\x1ea\x1eäá§«x \x94?PäV\x80v\x98q3-ëÀº!\x1aà©c\x14¼\x91¯>¯Ý`:·¹®Ô\x00 ZZ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063jj\x00\x00\x00\x0b\x00\x02\x01\x00\x00#\x00\x00\x00\x12\x00\x00\x00+\x00\x07\x06\x1a\x1a\x03\x04\x03\x03\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01þ\x0d\x00º\x00\x00\x01\x00\x01à\x00 '\x03\x8f\x9ccÙò\x86\x14\x8fx÷o\x1e\x93¡Dûµ_r\x96%ë\\\x9fÞ®5Þú*\x00\x90J¯\x16\x1e4vNÀÄ²\x0cÝtÏ÷­xï¼¨²£\x90¾ÝhÜ\x8b\x8eQ\x8ft,;\x16©ÿ7®_Ö0\x83Ï»a Qu^\x14]óæ²w\x01<\x1d¾Â i4Þz\x9fªËB»9\x953!}@ø\x0dá\x8cÉ\x1d\x8d>\x9b`]ÎÍèë\x0f´V2É,\x936ÿÊ\x0e@É0¾ò©¿Þ\x14\x88U\x10\x98à_Ï­¥oYÇâ\x07-K\x10±\x11Jã¸5{·Ç3b\x13\x94iÑ\x00\x1b\x00\x03\x02\x00\x02\x003\x04ï\x04íºº\x00\x01\x00c\x99\x04Àó\x8f\x819¥\x08Û=&º¯k0\x0f2¹\x16ßâË)¹_ª­â-û\x02\x85ÓoV\x08|í\x1b\x92\x99|mWö\x8c\x1f\x89§\x8fq}Íw\x1c\x07\x12¦Oð­\x99Ú¶#¨=\x12áËõGQ»P%AI¤Á1·À\x87n¯8µÜ¦ÀÍGW\x01\x86I6l4\x17H\x17Ç"-å2 ÏjME[\x1dc\x86\x1dWê\x11\x7fL\x9b\x06×\x06ù\x0b\x8dl'\x97\x0fQ\x84  7\x0bC¤\x93\x18\x15Wä\x8dWÆ¶þ±g'K\x18©ö´\x84\x09#¤{À[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:41] code 400, message Bad request version ('\x02h2\x08http/1.1\x00')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:41] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03@\x19YÌû\x1ce§s\\YÔ$\x84\x0cxÓ\x89à\x97¹\x12r"\x88\x91\x02\x1dZ@\x87Q r$\x18\x9d=\x9aÂ\x05&A!\x9fY\x16ôiäÁx%xE¤VHõÁ¥E\x9f·þ\x00 jj\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93**\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x0b\x00\x02\x01\x00\x00\x12\x00\x00\x00\x17\x00\x00þ\x0d\x01\x1a\x00\x00\x01\x00\x01³\x00 Xæê2ìÀÏzhåÌ5µ}xò«/0=\x9bgYùì\x06t?ku\x81S\x00ð'ë!~\x87\x88\x84\x8cEª\x8dºÞ¾\x18i\x1acâà¾\x8aJ"¨\x96ZÇ[~®\x85ÃÔ\x90\x10\x90Y*¹D\x9c6\x1dnÇ)ç\x80¯\\úIµ\x0ddª\x19o·\x91»ÍH¶b\x99\x96\x14xaA\x1d,\x81JÙ\x80Àg\x1cFÖù\x03\x01¤N\x0eÇ:æ*{bO\x80<\x12\x00½x\x9f\x7fAèð\x07þÊ\x8bÜHº\x9c\x93dÀ6¨¥-\x02Ñ¼ZÏÔÈD7/Ñ\x1c3òR\x99ÉcËÚ\x12\x96v\x1b;k\x02/à\x01{°\x8cCà¼·r\x1d©\x1aòº%Ì\x87\x1dÈnns\x1bés\x11\x10#oøD¯+Ïð\x19\x14\x9aã^éðÆ²·r¨íDrì\x93%#6\x069Ï\x01\x19Pªqz6Äc{©£c%¸³8\x8du\x11z­¹"°7EOR\x00:\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:41] code 400, message Bad request syntax ('\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03¾"0N\x1bäÛ')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:41] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03¾"0N\x1bäÛ[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:44] code 400, message Bad request version ('\x18\x8dá;\x93·À3TÁ)SYvd\x8a\x10µ¤\x04ã¾\x00¼Ù')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:44] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03\x07_\x87i\x8e¦ZîüO¢Ã\x9b\x98\x04*\x02Ù\x0f\x11ÎUcðA\x1cØxÍÿ6\x88 ¹jYQe\x14i\x80Sîc\x08Êh\x0cXÃC"EÉ³É¦·Ò\x0fÿ°YG'\x00 **\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063ÚÚ\x00\x00Di\x00\x05\x00\x03\x02h2\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x12\x00\x00\x00+\x00\x07\x06\x9a\x9a\x03\x04\x03\x03þ\x0d\x00º\x00\x00\x01\x00\x01u\x00 LsÀ\x8aT\x0bç\x1aT\x92Õ\x97x)é\x13Ï\x9a\x16GX\x9f\x0b\x92?m!\x1b©ÂÑv\x00\x90¹\x97Y¡Á\x0dêæs¬\x0fFË$\x1e\x02\x94w<´\x0cá\x13 ä¡Àq\x91ÁÉ\x1a8\x83¶'\x15Û\x1cÞeokÊ¢\x9d°\x1a)Þ4ÀÙ¦à}\x99ê|§T0^ý\x03÷l¾®L\x83Ø\x8eC¨þ½,\x87\x06\x91è÷\x9e¸\\èòåÖ\x02z\x1caQ\x09\x09\x18\x8dá;\x93·À3TÁ)SYvd\x8a\x10µ¤\x04ã¾\x00¼Ù[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:44] code 400, message Bad request version ('\x00\x02\x01\x00ÿ\x01\x00\x01\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:44] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03kAZÅØ»¡cOZiYï¼\x08b6j\x86G÷\x82qö÷ÖLjÊs¦¾ \x0bÈËãõãeªø¦v\x05¥\x8cx\x86Öór?à\x7f}z\x8f%\x09¯\x84\x0d"\x80\x00 ZZ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063ªª\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00Di\x00\x05\x00\x03\x02h2\x00-\x00\x02\x01\x01\x00\x1b\x00\x03\x02\x00\x02þ\x0d\x00º\x00\x00\x01\x00\x01$\x00 D4]õËÙ\x93J\x84\x8fÃ¶b3\x99(ÿ;3äêYî\x16rWxD2oA\x14\x00\x90(í\x1d+I\x89Ý\x9e)ÉÑæB¼\x1b\x13É*Ì~\x8bÁÌ\x15óiïõÌÈ±þ\x99¶¨\x01\x01ßÆzb­Cñ\x19zjSó\x99\x86ÞöÌ±\x93Å\x117b\x83\x1d·\x03vÚ~´\x89\x81\x05"\x98È7kÃÊ7C\x07\x04@\x9e5¥aÀ\x09æDúÛ\x03\x9a\x88\x9cIìõ\x0epú\x98¾TÈ\x001\x8eº«ÄAâ\x93\x02¸í\x0bâØÛw¯|\x80\x92\x98H~ÏÂ\x14s±\x10æ¯0è»\x05]\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x0b\x00\x02\x01\x00ÿ\x01\x00\x01\x00\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:44] code 400, message Bad request syntax ('\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03ë2ä³\x89E¸K¼®\x8cúðò¨\x94xÐ\x8eÜ\x8a\x16\x8fIèô\x9cþ\x8a')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:44] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03ë2ä³\x89E¸K¼®\x8cúðò¨\x94xÐ\x8eÜ\x8a\x16\x8fIèô\x9cþ\x8a[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [20/May/2024 22:25:44] code 400, message Bad request version ('ì\x83c2:à\x96p¿\x13¸aª9\x8aâ1\x10ø\x91Þó\x83î')
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:25:44] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03%*\x94í\x9aö¤\x85\x09u\x8c\x13^b\x0b\x1au(>2N\x8a¾\x921\x04V\x15Kfk` ì\x83c2:à\x96p¿\x13¸aª9\x8aâ1\x10ø\x91Þó\x83î[0m" 400 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:26:42] "GET / HTTP/1.1" 200 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:30:42] "GET /dbproj HTTP/1.1" 200 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:35:26] "GET /dbproj HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:35:36] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 405 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:37:32] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 405 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 22:37:39] "GET /dbproj HTTP/1.1" 200 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:24:20] "[35m[1mPOST /dbproj/add/user HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:28:27] "[35m[1mPOST /dbproj/add/user HTTP/1.1[0m" 201 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:28:37] "[31m[1mPOST /dbproj/add/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:31:18] "[31m[1mPOST /dbproj/add/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:32:21] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 405 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:34:27] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 405 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:34:28] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 405 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:41:18] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:42:06] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:44:12] "[31m[1mGET /dbproj/protected HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:44:48] "[31m[1mGET /dbproj/protected HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:45:00] "GET /dbproj/protected HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:46:51] "[31m[1mGET /dbproj/protected HTTP/1.1[0m" 422 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [20/May/2024 23:49:04] "GET /dbproj/protected HTTP/1.1" 200 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 11:18:10] "[35m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 201 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 11:18:29] "GET /dbproj HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 11:20:38] "[31m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 11:23:19] "[31m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 11:25:23] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 13:30:15] "[35m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 201 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 13:30:18] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 13:30:26] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 13:31:58] "[31m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 400 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 14:23:53] "[35m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 201 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 14:23:57] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 14:24:04] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 14:25:11] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 14:27:18] "[35m[1mPOST /dbproj/register/nurse HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 14:27:44] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:01:58] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:02:22] "[35m[1mPOST /dbproj/register/nurse HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:02:25] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:04:15] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:04:17] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:06:50] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:07:02] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:07:14] "[31m[1mGET /dbproj/protected HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:07:21] "[31m[1mGET /dbproj/protected HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:17:47] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:17:51] "[31m[1mGET /dbproj/protected HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:18:04] "[31m[1mGET /dbproj/protected HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:18:13] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:18:15] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:18:47] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:18:58] "GET /dbproj/protected HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:19:14] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:20:40] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:21:00] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:24:15] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:24:18] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:31:22] "[35m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:33:39] "[35m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:33:40] "[35m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:33:45] "[35m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:34:29] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:34:39] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:37:28] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:47:26] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:47:29] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:48:02] "[31m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:48:12] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:48:28] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:48:36] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:48:50] "[31m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:48:55] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [21/May/2024 15:49:00] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
