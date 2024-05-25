@@ -164,11 +164,12 @@ def add_employee_contract_data(username, contract_data):
     db = db_connection()
     cur = db.cursor()
     try:
+        # Corrigindo o número de placeholders
         cur.execute('''
-                INSERT INTO employee_contract (contract_salary, contract_start_date, 
-                contract_duration, contract_end_date, person_username)
-                VALUES (%s, %s, %s, %s, %s, %s)
-            ''', (salary, start_date, duration, end_date, username))
+            INSERT INTO employee_contract (contract_salary, contract_start_date, 
+            contract_duration, contract_end_date, person_username)
+            VALUES (%s, %s, %s, %s, %s)
+        ''', (salary, start_date, duration, end_date, username))
         db.commit()
         return True, None
     except Exception as e:
@@ -243,31 +244,48 @@ def register_assistant():
 
     data = request.get_json()
 
-    # Adicionar os dados comuns do user
-    response, status = add_common_user_data(data)
-    if status != 201:
-        return jsonify(response), status
-
-    username = response["username"]
-
-    # Adicionar os dados do contrato do assistente
+    # Extract common user data
+    username = data.get('username')
+    password = data.get('password')
+    name = data.get('name')
+    mobile_number = data.get('mobile_number')
+    birth_date = data.get('birth_date')
+    address = data.get('address')
+    email = data.get('email')
     contract_data = data.get('contract', {})
-    contract_error = contract_check(username, contract_data)
-    if contract_error:
-        return jsonify(contract_error), 500
 
     db = db_connection()
     cur = db.cursor()
+
     try:
+        # Insert into person table
+        hashed_password = generate_password_hash(password)
+        cur.execute('''
+            INSERT INTO person (username, password, name, mobile_number, birth_date, address, email)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+        ''', (username, hashed_password, name, mobile_number, birth_date, address, email))
+
+        # Insert into employee_contract table
+        cur.execute('''
+            INSERT INTO employee_contract (contract_salary, contract_start_date, contract_duration, contract_end_date, person_username)
+            VALUES (%s, %s, %s, %s, %s)
+        ''', (
+        contract_data['salary'], contract_data['start_date'], contract_data['duration'], contract_data.get('end_date'),
+        username))
+
+        # Insert into assistants table
         cur.execute('''
             INSERT INTO assistants (employee_contract_person_username)
             VALUES (%s)
         ''', (username,))
         db.commit()
+
         return jsonify({"msg": "Assistant added successfully", "username": username}), 201
+
     except Exception as e:
         db.rollback()
         return jsonify({"msg": str(e)}), 500
+
     finally:
         cur.close()
         db.close()
@@ -325,16 +343,14 @@ def register_doctor():
 
     data = request.get_json()
 
-    # Adicionar os dados comuns do user
     response, status = add_common_user_data(data)
     if status != 201:
         return jsonify(response), status
     username = response["username"]
 
-    # Adicionar os dados do médico
     doctor_license = data.get('license_info', None)
     if not doctor_license:
-        return jsonify({"msg": "Missing required field: position"}), 400
+        return jsonify({"msg": "Missing required field: license_info"}), 400  # Correção de mensagem de erro
 
     specializations = data.get('specializations_ids', [])
     if not specializations:
@@ -343,9 +359,10 @@ def register_doctor():
         if not str(specialization_id).isdigit():
             return jsonify({"msg": "Specialization ID must contain only digits"}), 400
 
-    # Adicionar os dados do contrato do médico
     contract_data = data.get('contract', {})
-    contract_check(username, contract_data)
+    contract_error = contract_check(username, contract_data)
+    if contract_error:
+        return jsonify(contract_error), 500
 
     db = db_connection()
     cur = db.cursor()
@@ -371,45 +388,38 @@ def register_doctor():
         cur.close()
         db.close()
 
-
 ##########################################################
 # LOGIN
 ##########################################################
 @app.route('/dbproj/login', methods=['POST'])
 def login():
-    # Check if the request contains JSON
     if not request.is_json:
         return jsonify({"msg": "Missing JSON in request"}), 400
 
-    username = request.json.get('username')
-    password = request.json.get('password')
+    username = request.json.get('username', None)
+    password = request.json.get('password', None)
 
     if not username or not password:
         return jsonify({"msg": "Missing username or password"}), 400
 
+    # Conectar ao banco de dados e buscar o usuário
     db = db_connection()
     cur = db.cursor()
-
     try:
-        # Retrieve the user's password hash from the database
         cur.execute('SELECT password FROM person WHERE username = %s', (username,))
         user = cur.fetchone()
+        if user is None:
+            return jsonify({"msg": "Username not found"}), 404
+        stored_password = user[0]
 
-        if user and check_password_hash(user[0], password):
-            # If the password matches, generate a JWT
+        if check_password_hash(stored_password, password):
             access_token = create_access_token(identity=username)
             return jsonify(access_token=access_token), 200
         else:
-            # If the password does not match or user does not exist
             return jsonify({"msg": "Bad username or password"}), 401
-
-    except Exception as e:
-        return jsonify({"msg": str(e)}), 500
-
     finally:
         cur.close()
         db.close()
-
 
 ##########################################################
 # EXEMPLO DE ENDPOINT PROTEGIDO
@@ -424,302 +434,167 @@ def protected():
 ##########################################################
 # SCHEDULE APPOINTMENT
 ##########################################################
-def schedule_appointment(data):
+@app.route('/dbproj/appointment', methods=['POST'])
+@jwt_required()
+def schedule_appointment():
+    if not request.is_json:
+        return jsonify({"status": 400, "errors": "Missing JSON in request"}), 400
+
+    patient_id = get_jwt_identity()
+    doctor_id = request.json.get('doctor_id')
+    date = request.json.get('date')
+
+    # You would add validation here for the doctor_id, date format etc.
+
     db = db_connection()
     cur = db.cursor()
-
-    # Extrai informações do pedido
-    patient_username = data.get('patient_username')
-    doctor_username = data.get('doctor_username')
-    appointment_date = data.get('date')  # formato 'YYYY-MM-DD'
-    appointment_time = data.get('time')  # formato 'HH:MM'
-    default_begin_date = appointment_date  # Usando a data do agendamento como data padrão
-
-    # Validações simples
-    if not (patient_username and doctor_username and appointment_date and appointment_time):
-        return {"msg": "All fields are required"}, 400
-
-    # Verifica disponibilidade
-    cur.execute('''
-        SELECT * FROM appointments_hospitalizations_bills
-        WHERE doctors_employee_contract_person_username = %s AND appointment_date = %s
-    ''', (doctor_username, appointment_date + ' ' + appointment_time))
-    if cur.fetchone() is not None:
-        return {"msg": "This slot is already booked"}, 400
-
-    # Insere a nova consulta no banco de dados
     try:
-        cur.execute('''
-            INSERT INTO appointments_hospitalizations_bills (
-                doctors_employee_contract_person_username, patient_person_username,
-                appointment_date, hospitalizations_bills_begin_date
-            )
-            VALUES (%s, %s, %s, %s)
-        ''', (doctor_username, patient_username, appointment_date + ' ' + appointment_time, default_begin_date))
+        # Schedule the appointment
+        cur.execute('''INSERT INTO appointments (patient_person_username, doctors_employee_contract_person_username, appointment_date)
+                       VALUES (%s, %s, %s) RETURNING appointment_id''', (patient_id, doctor_id, date))
+        appointment_id = cur.fetchone()[0]
         db.commit()
-        return {"msg": "Appointment scheduled successfully"}, 201
+        return jsonify({"status": 201, "results": appointment_id}), 201
     except Exception as e:
         db.rollback()
-        return {"msg": str(e)}, 500
+        return jsonify({"status": 500, "errors": str(e)}), 500
     finally:
         cur.close()
         db.close()
 
 
-
-@app.route('/dbproj/schedule/appointment', methods=['POST'])
-def create_appointment():
-    if not request.is_json:
-        return jsonify({"msg": "Missing JSON in request"}), 400
-
-    data = request.get_json()
-    result, status = schedule_appointment(data)
-    return jsonify(result), status
-
 ##########################################################
 # SEE APPOINTMENTS
 ##########################################################
-@app.route('/dbproj/view/appointments', methods=['GET'])
+@app.route('/dbproj/appointments/<int:patient_user_id>', methods=['GET'])
 @jwt_required()
-def view_appointments():
+def see_appointments(patient_user_id):
+    # Verify the identity and rights to access this patient's appointments
     current_user = get_jwt_identity()
-    patient_username = request.args.get('patient_username')
-    doctor_username = request.args.get('doctor_username')
-    appointment_date = request.args.get('date')  # formato 'YYYY-MM-DD'
+    if current_user != patient_user_id:
+        return jsonify({"status": 401, "errors": "Unauthorized access"}), 401
 
     db = db_connection()
     cur = db.cursor()
-
-    query = 'SELECT * FROM appointments_hospitalizations_bills WHERE true'
-    params = []
-
-    if patient_username:
-        query += ' AND patient_person_username = %s'
-        params.append(patient_username)
-    if doctor_username:
-        query += ' AND doctors_employee_contract_person_username = %s'
-        params.append(doctor_username)
-    if appointment_date:
-        query += ' AND appointment_date = %s'
-        params.append(appointment_date)
-
-    cur.execute(query, tuple(params))
-    appointments = cur.fetchall()
-
-    cur.close()
-    db.close()
-
-    appointments_data = [{
-        'appointment_id': a[0],
-        'doctor_username': a[1],
-        'patient_username': a[2],
-        'appointment_date': a[3]
-    } for a in appointments]
-
-    return jsonify(appointments_data), 200
+    try:
+        cur.execute('''SELECT appointment_id, doctors_employee_contract_person_username, appointment_date
+                       FROM appointments WHERE patient_person_username = %s''', (patient_user_id,))
+        appointments = cur.fetchall()
+        results = [{"id": appt[0], "doctor_id": appt[1], "date": appt[2]} for appt in appointments]
+        return jsonify({"status": 200, "results": results}), 200
+    finally:
+        cur.close()
+        db.close()
 
 
 ##########################################################
 # SCHEDULE SURGERY
 ##########################################################
-@app.route('/dbproj/schedule/surgery', methods=['POST'])
+@app.route('/dbproj/surgery', methods=['POST'])
 @jwt_required()
 def schedule_surgery():
-    # Check if the request body is JSON
-    if not request.is_json:
-        return jsonify({"msg": "Missing JSON in request"}), 400
-
-    data = request.get_json()
-    surgery_date = data.get('date')  # Format 'YYYY-MM-DD HH:MM:SS'
-    start_time = data.get('start_time')  # Format 'HH:MM'
-    end_time = data.get('end_time')  # Format 'HH:MM'
-    doctor_username = data.get('doctor_username')
-    patient_username = data.get('patient_username')
-
-    if not all([surgery_date, start_time, end_time, doctor_username, patient_username]):
-        return jsonify({"msg": "Missing required fields"}), 400
+    patient_id = request.json.get('patient_id')
+    doctor_id = request.json.get('doctor')
+    nurses = request.json.get('nurses')  # List of [nurse_id, role]
+    date = request.json.get('date')
 
     db = db_connection()
     cur = db.cursor()
-
     try:
-        # Check if the doctor is available
-        cur.execute('''
-            SELECT COUNT(*)
-            FROM surgeries
-            WHERE doctors_employee_contract_person_username = %s AND start_time BETWEEN %s AND %s
-        ''', (doctor_username, surgery_date + ' ' + start_time, surgery_date + ' ' + end_time))
-        if cur.fetchone()[0] > 0:
-            return jsonify({"msg": "Doctor is not available at the selected time"}), 400
-
-        # Insert the new surgery into the database
-        cur.execute('''
-            INSERT INTO surgeries (start_time, end_time, doctors_employee_contract_person_username, patient_person_username)
-            VALUES (%s, %s, %s, %s)
-            RETURNING surgery_id
-        ''', (surgery_date + ' ' + start_time, surgery_date + ' ' + end_time, doctor_username, patient_username))
+        # Insert the surgery and perhaps a new hospitalization
+        cur.execute('''INSERT INTO surgeries (patient_id, doctor_id, date)
+                       VALUES (%s, %s, %s) RETURNING surgery_id''', (patient_id, doctor_id, date))
         surgery_id = cur.fetchone()[0]
+        # Insert nurses involved in the surgery
+        for nurse in nurses:
+            cur.execute('''INSERT INTO surgery_nurses (surgery_id, nurse_id, role)
+                           VALUES (%s, %s, %s)''', (surgery_id, nurse[0], nurse[1]))
         db.commit()
-        return jsonify({"msg": "Surgery scheduled successfully", "surgery_id": surgery_id}), 201
-
+        return jsonify({"status": 201, "results": {"surgery_id": surgery_id}}), 201
     except Exception as e:
         db.rollback()
-        return jsonify({"msg": str(e)}), 500
-
+        return jsonify({"status": 500, "errors": str(e)}), 500
     finally:
         cur.close()
         db.close()
 
+
 ##########################################################
 # GET PRESCRIPTIONS
 ##########################################################
-@app.route('/dbproj/get/prescriptions', methods=['GET'])
+@app.route('/dbproj/prescriptions/<int:person_id>', methods=['GET'])
 @jwt_required()
-def get_prescriptions():
-    # Obter o usuário logado
-    current_user = get_jwt_identity()
-
-    # Extrair parâmetros de consulta (query parameters)
-    patient_username = request.args.get('patient_username')
-    date = request.args.get('date')  # formato 'YYYY-MM-DD'
-
+def get_prescriptions(person_id):
     db = db_connection()
     cur = db.cursor()
-
-    # Montar a consulta SQL baseada nos parâmetros fornecidos
-    query = '''
-    SELECT p.prescription_id, p.prescription_date, pos.dosage, pos.frequency, m.medicine_name
-    FROM prescriptions p
-    JOIN posology pos ON p.prescription_id = pos.prescriptions_prescription_id
-    JOIN medicines m ON pos.medicines_medicine_name = m.medicine_name
-    WHERE true
-    '''
-    params = []
-
-    if patient_username:
-        query += ' AND p.patient_username = %s'
-        params.append(patient_username)
-    if date:
-        query += ' AND p.prescription_date = %s'
-        params.append(date)
-
-    # Executar a consulta
-    cur.execute(query, tuple(params))
-    prescriptions = cur.fetchall()
-    cur.close()
-    db.close()
-
-    # Formatar a resposta
-    prescriptions_data = [{
-        'prescription_id': pres[0],
-        'prescription_date': pres[1],
-        'medicine_name': pres[4],
-        'dosage': pres[2],
-        'frequency': pres[3]
-    } for pres in prescriptions]
-
-    return jsonify(prescriptions_data), 200
+    try:
+        cur.execute('''SELECT prescription_id, validity, dosage, frequency, medicine_name
+                       FROM prescriptions WHERE person_id = %s''', (person_id,))
+        prescriptions = cur.fetchall()
+        results = [{"id": pres[0], "validity": pres[1], "posology": {"dose": pres[2], "frequency": pres[3], "medicine": pres[4]}} for pres in prescriptions]
+        return jsonify({"status": 200, "results": results}), 200
+    finally:
+        cur.close()
+        db.close()
 
 
 ##########################################################
 # ADD PRESCRIPTIONS
 ##########################################################
-@app.route('/dbproj/add/prescription', methods=['POST'])
+@app.route('/dbproj/prescription/', methods=['POST'])
 @jwt_required()
 def add_prescription():
-    # Verifica se o pedido é JSON
-    if not request.is_json:
-        return jsonify({"msg": "Missing JSON in request"}), 400
-
-    # Extrai dados do JSON
-    data = request.get_json()
-    patient_username = data.get('patient_username')
-    prescription_date = data.get('prescription_date')  # formato 'YYYY-MM-DD'
-    medicines = data.get('medicines')  # Lista de dicionários {medicine_name, dosage, frequency}
-
-    if not patient_username or not prescription_date or not medicines:
-        return jsonify({"msg": "Missing required fields"}), 400
+    event_id = request.json.get('event_id')
+    type = request.json.get('type')  # "hospitalization" or "appointment"
+    validity = request.json.get('validity')
+    medicines = request.json.get('medicines')  # List of medicine details
 
     db = db_connection()
     cur = db.cursor()
-
     try:
-        # Insere a prescrição na tabela de prescrições
-        cur.execute('''
-            INSERT INTO prescriptions (prescription_date, patient_person_username)
-            VALUES (%s, %s) RETURNING prescription_id
-        ''', (prescription_date, patient_username))
-        prescription_id = cur.fetchone()[0]
-
-        # Insere detalhes dos medicamentos na tabela de posologia
         for medicine in medicines:
-            medicine_name = medicine['medicine_name']
-            dosage = medicine['dosage']
-            frequency = medicine['frequency']
-
-            # Verifica se o medicamento existe
-            cur.execute('SELECT medicine_name FROM medicines WHERE medicine_name = %s', (medicine_name,))
-            if cur.fetchone() is None:
-                # Insere o medicamento se não existir
-                cur.execute('INSERT INTO medicines (medicine_name) VALUES (%s)', (medicine_name,))
-
-            # Insere a posologia
-            cur.execute('''
-                INSERT INTO posology (prescriptions_prescription_id, medicines_medicine_name, dosage, frequency)
-                VALUES (%s, %s, %s, %s)
-            ''', (prescription_id, medicine_name, dosage, frequency))
-
+            cur.execute('''INSERT INTO prescriptions (event_id, type, validity, medicine_name, dosage, frequency)
+                           VALUES (%s, %s, %s, %s, %s, %s) RETURNING prescription_id''',
+                        (event_id, type, validity, medicine['medicine'], medicine['posology_dose'], medicine['posology_frequency']))
         db.commit()
-        return jsonify({"msg": "Prescription added successfully", "prescription_id": prescription_id}), 201
-
+        return jsonify({"status": 201, "results": "Prescription added"}), 201
     except Exception as e:
         db.rollback()
-        return jsonify({"msg": str(e)}), 500
-
+        return jsonify({"status": 500, "errors": str(e)}), 500
     finally:
         cur.close()
         db.close()
 
+
 ##########################################################
 # EXECUTE PAYMENT
 ##########################################################
-from flask import request, jsonify
-from flask_jwt_extended import jwt_required
-import psycopg2
-
-@app.route('/dbproj/execute/payment', methods=['POST'])
+@app.route('/dbproj/bills/<int:bill_id>', methods=['POST'])
 @jwt_required()
-def execute_payment():
-    # Verifica se o pedido é JSON
-    if not request.is_json:
-        return jsonify({"msg": "Missing JSON in request"}), 400
-
-    # Extrai dados do JSON
-    data = request.get_json()
-    appointment_id = data.get('appointment_id')
-    amount = data.get('amount')
-    payment_method = data.get('payment_method')
-
-    if not appointment_id or not amount or payment_method is None:
-        return jsonify({"msg": "Missing required fields"}), 400
+def execute_payment(bill_id):
+    current_user = get_jwt_identity()  # Assuming the identity is the patient's username
+    amount = request.json.get('amount')
+    payment_method = request.json.get('payment_method')
 
     db = db_connection()
     cur = db.cursor()
-
     try:
-        # Insere o pagamento na tabela de pagamentos
-        cur.execute('''
-            INSERT INTO payments (amount, deadline_date, payment_method, appointments_hospitalizations_bills_appointment_id)
-            VALUES (%s, NOW(), %s, %s) RETURNING payment_id
-        ''', (amount, payment_method, appointment_id))
-        payment_id = cur.fetchone()[0]
-        db.commit()
-        return jsonify({"msg": "Payment processed successfully", "payment_id": payment_id}), 201
+        cur.execute('SELECT patient_person_username, total_amount FROM bills WHERE bill_id = %s', (bill_id,))
+        bill = cur.fetchone()
+        if not bill:
+            return jsonify({"status": 404, "errors": "Bill not found"}), 404
+        if bill[0] != current_user:
+            return jsonify({"status": 401, "errors": "Unauthorized"}), 401
 
+        new_remaining_value = bill[1] - amount
+        if new_remaining_value <= 0:
+            cur.execute('UPDATE bills SET status = %s WHERE bill_id = %s', ('paid', bill_id))
+        cur.execute('INSERT INTO payments (bill_id, amount, payment_method) VALUES (%s, %s, %s)', (bill_id, amount, payment_method))
+        db.commit()
+        return jsonify({"status": 200, "results": new_remaining_value}), 200
     except Exception as e:
         db.rollback()
-        return jsonify({"msg": str(e)}), 500
-
+        return jsonify({"status": 500, "errors": str(e)}), 500
     finally:
         cur.close()
         db.close()
@@ -727,101 +602,47 @@ def execute_payment():
 ##########################################################
 # LIST TOP 3 PATIENTS
 ##########################################################
-@app.route('/dbproj/top3/patients', methods=['GET'])
+@app.route('/dbproj/top3', methods=['GET'])
 @jwt_required()
-def top_three_patients():
+def list_top_three_patients():
     db = db_connection()
     cur = db.cursor()
-
     try:
-        # Executa uma consulta SQL para encontrar os top 3 pacientes com mais compromissos
+        # Sample SQL to list top 3 spending patients
         cur.execute('''
-            SELECT patient_person_username, COUNT(*) as total_appointments
-            FROM appointments_hospitalizations_bills
-            GROUP BY patient_person_username
-            ORDER BY total_appointments DESC
-            LIMIT 3
+        SELECT patient_name, SUM(amount) as total_spent
+        FROM payments JOIN patients ON payments.patient_id = patients.id
+        WHERE payment_date >= date_trunc('month', current_date)
+        GROUP BY patient_name
+        ORDER BY total_spent DESC
+        LIMIT 3
         ''')
-        results = cur.fetchall()
-
-        # Prepara a resposta
-        top_patients = [
-            {"patient_username": result[0], "total_appointments": result[1]}
-            for result in results
-        ]
-
-        return jsonify(top_patients), 200
-
-    except Exception as e:
-        return jsonify({"msg": str(e)}), 500
-
+        top_patients = cur.fetchall()
+        results = [{"patient_name": pat[0], "amount_spent": pat[1]} for pat in top_patients]
+        return jsonify({"status": 200, "results": results}), 200
     finally:
         cur.close()
         db.close()
 
+
 ##########################################################
 # DAILY SUMMARY
 ##########################################################
-@app.route('/dbproj/daily_summary', methods=['GET'])
+@app.route('/dbproj/daily/<date>', methods=['GET'])
 @jwt_required()
-def daily_summary():
-    # Fetch the date from query parameters or use current date
-    summary_date = request.args.get('date')
-
-    if not summary_date:
-        return jsonify({"msg": "Date is required for the daily summary"}), 400
-
+def daily_summary(date):
     db = db_connection()
     cur = db.cursor()
-
     try:
-        # Gathering summary data
-        # Number of appointments
+        # Sample SQL to get daily summary
         cur.execute('''
-            SELECT COUNT(*)
-            FROM appointments_hospitalizations_bills
-            WHERE CAST(appointment_date AS DATE) = %s
-        ''', (summary_date,))
-        appointments_count = cur.fetchone()[0]
-
-        # Number of surgeries
-        cur.execute('''
-            SELECT COUNT(*)
-            FROM surgeries
-            WHERE CAST(start_time AS DATE) = %s
-        ''', (summary_date,))
-        surgeries_count = cur.fetchone()[0]
-
-        # Number of prescriptions issued
-        cur.execute('''
-            SELECT COUNT(*)
-            FROM prescriptions
-            WHERE CAST(prescription_date AS DATE) = %s
-        ''', (summary_date,))
-        prescriptions_count = cur.fetchone()[0]
-
-        # Total payments received
-        cur.execute('''
-            SELECT SUM(amount)
-            FROM payments
-            WHERE CAST(deadline_date AS DATE) = %s
-        ''', (summary_date,))
-        payments_total = cur.fetchone()[0] or 0  # Handle None if no payments
-
-        # Compile the results into a single summary
-        summary = {
-            "date": summary_date,
-            "total_appointments": appointments_count,
-            "total_surgeries": surgeries_count,
-            "total_prescriptions": prescriptions_count,
-            "total_payments_received": payments_total
-        }
-
-        return jsonify(summary), 200
-
-    except Exception as e:
-        return jsonify({"msg": str(e)}), 500
-
+        SELECT SUM(amount) as amount_spent, COUNT(DISTINCT surgery_id) as surgeries, COUNT(DISTINCT prescription_id) as prescriptions
+        FROM hospitalizations
+        WHERE entry_date = %s
+        ''', (date,))
+        summary = cur.fetchone()
+        results = {"amount_spent": summary[0], "surgeries": summary[1], "prescriptions": summary[2]}
+        return jsonify({"status": 200, "results": results}), 200
     finally:
         cur.close()
         db.close()
@@ -829,59 +650,23 @@ def daily_summary():
 ##########################################################
 # GENERATE A MONTHLY REPORT
 ##########################################################
-@app.route('/dbproj/monthly_report', methods=['GET'])
+@app.route('/dbproj/report', methods=['GET'])
 @jwt_required()
-def monthly_report():
-    # Fetch the month and year from query parameters
-    month = request.args.get('month')
-    year = request.args.get('year')
-
-    if not month or not year:
-        return jsonify({"msg": "Both month and year are required for generating the monthly report"}), 400
-
+def generate_monthly_report():
     db = db_connection()
     cur = db.cursor()
-
     try:
-        # Gathering data for the report
-        # Number of appointments
+        # Sample SQL to get monthly report for doctors with most surgeries
         cur.execute('''
-            SELECT COUNT(*)
-            FROM appointments_hospitalizations_bills
-            WHERE EXTRACT(MONTH FROM appointment_date) = %s AND EXTRACT(YEAR FROM appointment_date) = %s
-        ''', (month, year))
-        appointments_count = cur.fetchone()[0]
-
-        # Number of surgeries
-        cur.execute('''
-            SELECT COUNT(*)
-            FROM surgeries
-            WHERE EXTRACT(MONTH FROM start_time) = %s AND EXTRACT(YEAR FROM start_time) = %s
-        ''', (month, year))
-        surgeries_count = cur.fetchone()[0]
-
-        # Total payments received
-        cur.execute('''
-            SELECT SUM(amount)
-            FROM payments
-            WHERE EXTRACT(MONTH FROM deadline_date) = %s AND EXTRACT(YEAR FROM deadline_date) = %s
-        ''', (month, year))
-        payments_total = cur.fetchone()[0] or 0  # Handle None if no payments
-
-        # Compile the results into a single report
-        report = {
-            "month": month,
-            "year": year,
-            "total_appointments": appointments_count,
-            "total_surgeries": surgeries_count,
-            "total_payments_received": payments_total
-        }
-
-        return jsonify(report), 200
-
-    except Exception as e:
-        return jsonify({"msg": str(e)}), 500
-
+        SELECT EXTRACT(MONTH FROM surgery_date) as month, doctor_name, COUNT(surgery_id) as total_surgeries
+        FROM surgeries JOIN doctors ON surgeries.doctor_id = doctors.id
+        WHERE surgery_date > current_date - INTERVAL '1 YEAR'
+        GROUP BY month, doctor_name
+        ORDER BY month, total_surgeries DESC
+        ''')
+        reports = cur.fetchall()
+        results = [{"month": report[0], "doctor": report[1], "surgeries": report[2]} for report in reports]
+        return jsonify({"status": 200, "results": results}), 200
     finally:
         cur.close()
         db.close()
