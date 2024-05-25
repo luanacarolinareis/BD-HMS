@@ -267,11 +267,11 @@ def register_assistant():
 
         # Insert into employee_contract table
         cur.execute('''
-            INSERT INTO employee_contract (contract_salary, contract_start_date, contract_duration, contract_end_date, person_username)
+            INSERT INTO employee_contract (contract_salary, contract_start_date, contract_duration, contract_end_date, 
+            person_username)
             VALUES (%s, %s, %s, %s, %s)
-        ''', (
-        contract_data['salary'], contract_data['start_date'], contract_data['duration'], contract_data.get('end_date'),
-        username))
+        ''', (contract_data['salary'], contract_data['start_date'], contract_data['duration'],
+              contract_data.get('end_date'), username))
 
         # Insert into assistants table
         cur.execute('''
@@ -388,6 +388,7 @@ def register_doctor():
         cur.close()
         db.close()
 
+
 ##########################################################
 # LOGIN
 ##########################################################
@@ -421,6 +422,7 @@ def login():
         cur.close()
         db.close()
 
+
 ##########################################################
 # EXEMPLO DE ENDPOINT PROTEGIDO
 ##########################################################
@@ -450,7 +452,8 @@ def schedule_appointment():
     cur = db.cursor()
     try:
         # Schedule the appointment
-        cur.execute('''INSERT INTO appointments (patient_person_username, doctors_employee_contract_person_username, appointment_date)
+        cur.execute('''INSERT INTO appointments (patient_person_username, doctors_employee_contract_person_username, 
+        appointment_date)
                        VALUES (%s, %s, %s) RETURNING appointment_id''', (patient_id, doctor_id, date))
         appointment_id = cur.fetchone()[0]
         db.commit()
@@ -531,7 +534,8 @@ def get_prescriptions(person_id):
         cur.execute('''SELECT prescription_id, validity, dosage, frequency, medicine_name
                        FROM prescriptions WHERE person_id = %s''', (person_id,))
         prescriptions = cur.fetchall()
-        results = [{"id": pres[0], "validity": pres[1], "posology": {"dose": pres[2], "frequency": pres[3], "medicine": pres[4]}} for pres in prescriptions]
+        results = [{"id": pres[0], "validity": pres[1], "posology": {"dose": pres[2], "frequency": pres[3],
+                                                                     "medicine": pres[4]}} for pres in prescriptions]
         return jsonify({"status": 200, "results": results}), 200
     finally:
         cur.close()
@@ -545,7 +549,7 @@ def get_prescriptions(person_id):
 @jwt_required()
 def add_prescription():
     event_id = request.json.get('event_id')
-    type = request.json.get('type')  # "hospitalization" or "appointment"
+    req_type = request.json.get('type')  # "hospitalization" or "appointment"
     validity = request.json.get('validity')
     medicines = request.json.get('medicines')  # List of medicine details
 
@@ -555,7 +559,8 @@ def add_prescription():
         for medicine in medicines:
             cur.execute('''INSERT INTO prescriptions (event_id, type, validity, medicine_name, dosage, frequency)
                            VALUES (%s, %s, %s, %s, %s, %s) RETURNING prescription_id''',
-                        (event_id, type, validity, medicine['medicine'], medicine['posology_dose'], medicine['posology_frequency']))
+                        (event_id, req_type, validity, medicine['medicine'], medicine['posology_dose'],
+                         medicine['posology_frequency']))
         db.commit()
         return jsonify({"status": 201, "results": "Prescription added"}), 201
     except Exception as e:
@@ -589,7 +594,8 @@ def execute_payment(bill_id):
         new_remaining_value = bill[1] - amount
         if new_remaining_value <= 0:
             cur.execute('UPDATE bills SET status = %s WHERE bill_id = %s', ('paid', bill_id))
-        cur.execute('INSERT INTO payments (bill_id, amount, payment_method) VALUES (%s, %s, %s)', (bill_id, amount, payment_method))
+        cur.execute('INSERT INTO payments (bill_id, amount, payment_method) VALUES (%s, %s, %s)',
+                    (bill_id, amount, payment_method))
         db.commit()
         return jsonify({"status": 200, "results": new_remaining_value}), 200
     except Exception as e:
@@ -598,6 +604,7 @@ def execute_payment(bill_id):
     finally:
         cur.close()
         db.close()
+
 
 ##########################################################
 # LIST TOP 3 PATIENTS
@@ -636,7 +643,8 @@ def daily_summary(date):
     try:
         # Sample SQL to get daily summary
         cur.execute('''
-        SELECT SUM(amount) as amount_spent, COUNT(DISTINCT surgery_id) as surgeries, COUNT(DISTINCT prescription_id) as prescriptions
+        SELECT SUM(amount) as amount_spent, COUNT(DISTINCT surgery_id) as surgeries, 
+        COUNT(DISTINCT prescription_id) as prescriptions
         FROM hospitalizations
         WHERE entry_date = %s
         ''', (date,))
@@ -646,6 +654,7 @@ def daily_summary(date):
     finally:
         cur.close()
         db.close()
+
 
 ##########################################################
 # GENERATE A MONTHLY REPORT
