@@ -82,6 +82,9 @@ def validate_user_data(username, email, password, name, mobile_number, birth_dat
 # CHECK EMPLOYEE CONTRACT DATA
 ##########################################################
 def validate_contract_data(salary, start_date, end_date):
+    if not salary or not start_date:
+        return "Salary and start date are required"
+
     if not str(salary).isdigit():
         return "Salary must contain only digits"
 
@@ -155,10 +158,10 @@ def add_common_user_data(common_data):
 # ADD EMPLOYEE CONTRACT DATA
 ##########################################################
 def add_employee_contract_data(username, contract_data):
-    salary = contract_data['salary']
-    start_date = contract_data['start_date']
-    duration = contract_data['duration']
-    end_date = contract_data['end_date']
+    salary = contract_data.get('salary')
+    start_date = contract_data.get('start_date')
+    duration = contract_data.get('duration')
+    end_date = contract_data.get('end_date')
 
     validation_result = validate_contract_data(salary, start_date, end_date)
     if validation_result:

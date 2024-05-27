@@ -620,3 +620,66 @@ INFO:werkzeug:127.0.0.1 - - [27/May/2024 19:07:07] "[35m[1mPOST /dbproj/regist
 INFO:werkzeug:127.0.0.1 - - [27/May/2024 19:07:29] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
 INFO:logger:API v1.0 online: https://127.0.0.1:8080
 INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 19:10:12] "[35m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 19:13:58] "[35m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 19:17:19] "[35m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 19:17:55] "[35m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 19:18:05] "[35m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 19:22:24] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 19:23:02] "[35m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 19:35:33] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 19:37:14] "[35m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 201 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 19:39:17] "[35m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 20:01:25] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 20:03:02] "[35m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 201 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 20:04:17] "[35m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 201 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 20:04:41] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 20:04:57] "[35m[1mPOST /dbproj/register/nurse HTTP/1.1[0m" 201 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 20:05:03] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 201 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 20:05:08] "[35m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 201 -
