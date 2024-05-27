@@ -24,14 +24,17 @@ StatusCodes = {
 # DATABASE ACCESS
 ##########################################################
 def db_connection():
-    db = psycopg2.connect(
-        user='postgres',
-        password='postgres',
-        host='127.0.0.1',
-        port='5432',
-        database='HMS'
-    )
-    return db
+    try:
+        db = psycopg2.connect(
+            user='postgres',
+            password='postgres',
+            host='127.0.0.1',
+            port='5432',
+            database='HMS'
+        )
+        return db
+    except Exception as e:
+        return {"msg": str(e)}, 500
 
 
 ##########################################################
@@ -152,10 +155,10 @@ def add_common_user_data(common_data):
 # ADD EMPLOYEE CONTRACT DATA
 ##########################################################
 def add_employee_contract_data(username, contract_data):
-    salary = contract_data.get('salary')
-    start_date = contract_data.get('start_date')
-    duration = contract_data.get('duration')
-    end_date = contract_data.get('end_date')
+    salary = contract_data['salary']
+    start_date = contract_data['start_date']
+    duration = contract_data['duration']
+    end_date = contract_data['end_date']
 
     validation_result = validate_contract_data(salary, start_date, end_date)
     if validation_result:
@@ -164,7 +167,6 @@ def add_employee_contract_data(username, contract_data):
     db = db_connection()
     cur = db.cursor()
     try:
-        # Corrigindo o número de placeholders
         cur.execute('''
             INSERT INTO employee_contract (contract_salary, contract_start_date, 
             contract_duration, contract_end_date, person_username)
@@ -199,7 +201,7 @@ def contract_check(username, contract_data):
             cur.close()
             db.close()
         return {"msg": error}, 500
-    return None
+    return {"msg": "Contract added successfully"}, 201
 
 
 ##########################################################
@@ -210,11 +212,11 @@ def register_patient():
     if not request.is_json:
         return jsonify({"msg": "Missing JSON in request"}), 400
 
+    # Adicionar os dados comuns do user
     data = request.get_json()
     response, status = add_common_user_data(data)
     if status != 201:
         return jsonify(response), status
-
     username = response["username"]
 
     db = db_connection()
@@ -242,44 +244,27 @@ def register_assistant():
     if not request.is_json:
         return jsonify({"msg": "Missing JSON in request"}), 400
 
+    # Adicionar os dados comuns do user
     data = request.get_json()
+    response, status = add_common_user_data(data)
+    if status != 201:
+        return jsonify(response), status
+    username = response["username"]
 
-    # Extract common user data
-    username = data.get('username')
-    password = data.get('password')
-    name = data.get('name')
-    mobile_number = data.get('mobile_number')
-    birth_date = data.get('birth_date')
-    address = data.get('address')
-    email = data.get('email')
+    # Adicionar os dados do contrato do assistente
     contract_data = data.get('contract', {})
+    response, status = contract_check(username, contract_data)
+    if status != 201:
+        return jsonify(response), status
 
     db = db_connection()
     cur = db.cursor()
-
     try:
-        # Insert into person table
-        hashed_password = generate_password_hash(password)
-        cur.execute('''
-            INSERT INTO person (username, password, name, mobile_number, birth_date, address, email)
-            VALUES (%s, %s, %s, %s, %s, %s, %s)
-        ''', (username, hashed_password, name, mobile_number, birth_date, address, email))
-
-        # Insert into employee_contract table
-        cur.execute('''
-            INSERT INTO employee_contract (contract_salary, contract_start_date, contract_duration, contract_end_date, 
-            person_username)
-            VALUES (%s, %s, %s, %s, %s)
-        ''', (contract_data['salary'], contract_data['start_date'], contract_data['duration'],
-              contract_data.get('end_date'), username))
-
-        # Insert into assistants table
         cur.execute('''
             INSERT INTO assistants (employee_contract_person_username)
             VALUES (%s)
         ''', (username,))
         db.commit()
-
         return jsonify({"msg": "Assistant added successfully", "username": username}), 201
 
     except Exception as e:
@@ -301,20 +286,22 @@ def register_nurse():
 
     data = request.get_json()
 
+    # Adicionar os dados do enfermeiro
+    position = data.get('position', None)
+    if not position:
+        return jsonify({"msg": "Missing required field: position"}), 400
+
     # Adicionar os dados comuns do user
     response, status = add_common_user_data(data)
     if status != 201:
         return jsonify(response), status
     username = response["username"]
 
-    # Adicionar os dados do enfermeiro
-    position = data.get('position', None)
-    if not position:
-        return jsonify({"msg": "Missing required field: position"}), 400
-
     # Adicionar os dados do contrato do enfermeiro
     contract_data = data.get('contract', {})
-    contract_check(username, contract_data)
+    response, status = contract_check(username, contract_data)
+    if status != 201:
+        return jsonify(response), status
 
     db = db_connection()
     cur = db.cursor()
@@ -343,14 +330,13 @@ def register_doctor():
 
     data = request.get_json()
 
-    response, status = add_common_user_data(data)
-    if status != 201:
-        return jsonify(response), status
-    username = response["username"]
+    db = db_connection()
+    cur = db.cursor()
 
+    # Adicionar os dados do médico
     doctor_license = data.get('license_info', None)
     if not doctor_license:
-        return jsonify({"msg": "Missing required field: license_info"}), 400  # Correção de mensagem de erro
+        return jsonify({"msg": "Missing required field: license_info"}), 400
 
     specializations = data.get('specializations_ids', [])
     if not specializations:
@@ -358,14 +344,22 @@ def register_doctor():
     for specialization_id in specializations:
         if not str(specialization_id).isdigit():
             return jsonify({"msg": "Specialization ID must contain only digits"}), 400
+        cur.execute('SELECT 1 FROM specializations WHERE specialization_id = %s', (specialization_id,))
+        if cur.fetchone() is None:
+            return jsonify({"msg": f"Specialization ID {specialization_id} does not exist"}), 400
 
+    # Adicionar os dados comuns do user
+    response, status = add_common_user_data(data)
+    if status != 201:
+        return jsonify(response), status
+    username = response["username"]
+
+    # Adicionar os dados do contrato do médico
     contract_data = data.get('contract', {})
-    contract_error = contract_check(username, contract_data)
-    if contract_error:
-        return jsonify(contract_error), 500
+    response, status = contract_check(username, contract_data)
+    if status != 201:
+        return jsonify(response), status
 
-    db = db_connection()
-    cur = db.cursor()
     try:
         cur.execute('''
             INSERT INTO doctors (doctor_license, employee_contract_person_username)
