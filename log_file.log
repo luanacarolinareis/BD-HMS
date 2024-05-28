@@ -878,3 +878,1017 @@ INFO:werkzeug: * Debugger PIN: 803-304-175
 INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:04:02] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
 INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:04:27] "POST /dbproj/appointment HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:04:58] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:10:37] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:11:02] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:11:10] "POST /dbproj/appointment HTTP/1.1" 200 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:15:09] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:15:17] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:15:43] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:15:47] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:16:01] "POST /dbproj/appointment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:16:19] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:16:23] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:17:32] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:17:37] "POST /dbproj/appointment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:19:01] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:19:33] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:19:48] "[33mGET /dbproj/appointments/{patient_user_id} HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:20:01] "[33mGET /dbproj/appointments HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:26:42] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:26:56] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:28:36] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:28:40] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:28:44] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:29:22] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:29:42] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:30:10] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:30:28] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:30:31] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:31:45] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:32:02] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:43:25] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:43:54] "[32mGET /dbproj/appointments HTTP/1.1[0m" 308 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:43:54] "GET /dbproj/appointments/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:45:59] "[32mGET /dbproj/appointments HTTP/1.1[0m" 308 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:45:59] "[31m[1mGET /dbproj/appointments/ HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:46:05] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:46:16] "[32mGET /dbproj/appointments HTTP/1.1[0m" 308 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:46:16] "[31m[1mGET /dbproj/appointments/ HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:50:18] "GET /dbproj HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:50:40] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:52:06] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:52:20] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:53:13] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:53:48] "POST /dbproj/register/nurse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:54:40] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:55:45] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:56:07] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:56:28] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:56:48] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:58:41] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:59:17] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:59:35] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:00:11] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:00:20] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:01:07] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:01:17] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:02:24] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:02:33] "POST /dbproj/appointment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:03:58] "[32mGET /dbproj/appointments HTTP/1.1[0m" 308 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:03:58] "[31m[1mGET /dbproj/appointments/ HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:04:35] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:04:44] "[32mGET /dbproj/appointments HTTP/1.1[0m" 308 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:04:44] "GET /dbproj/appointments/ HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:06:37] "[35m[1mGET /dbproj/appointments/2 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:11:11] "[35m[1mGET /dbproj/appointments/2 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:14:14] "GET /dbproj/appointments/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:14:25] "GET /dbproj/appointments/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:14:30] "[31m[1mGET /dbproj/appointments/0 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:15:15] "GET /dbproj/appointments/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:16:34] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 422 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:18:33] "[33mPOST /dbproj/surgery/{hospitalization_id} HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:18:41] "[31m[1mPOST /dbproj/surgery/1 HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:19:03] "[31m[1mGET /dbproj/prescriptions/1 HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:19:30] "[31m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:20:02] "[31m[1mPOST /dbproj/bills/1 HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:20:27] "[31m[1mGET /dbproj/top3 HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:20:40] "[31m[1mGET /dbproj/daily/{year-month-day} HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:20:59] "[31m[1mGET /dbproj/report HTTP/1.1[0m" 422 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:32:50] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:32:54] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:32:57] "POST /dbproj/register/nurse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 17:32:59] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:13:31] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:13:50] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:15:04] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:15:27] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:17:41] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:17:48] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:20:23] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:20:30] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:20:34] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:21:26] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:21:27] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:23:44] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:24:09] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:24:19] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:26:14] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:26:15] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:26:16] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:26:23] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:43:21] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:43:29] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:43:42] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:44:24] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:45:25] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:45:27] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:53:54] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:54:58] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:55:00] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:55:16] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:56:12] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:56:14] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:56:26] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:57:31] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:57:38] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:57:46] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:57:53] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:57:54] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:58:15] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:58:17] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:59:08] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:59:13] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 18:59:32] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:00:44] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:00:54] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:01:27] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:01:29] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:02:41] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:02:59] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:04:06] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:04:24] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:04:41] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:04:42] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:04:43] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:04:43] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:08:11] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:13:52] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:16:05] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:16:09] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:16:32] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:17:38] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:17:40] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:17:40] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:17:41] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:17:41] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:17:42] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:17:42] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:18:21] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:18:22] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:23:37] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:23:38] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:24:05] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:24:06] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:24:57] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:26:01] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:26:03] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:27:38] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:27:39] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:27:57] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:29:43] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:30:50] "[35m[1mPOST /dbproj/surgery/1 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:30:51] "[35m[1mPOST /dbproj/surgery/1 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:32:16] "[31m[1mPOST /dbproj/surgery/1 HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:32:20] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:32:31] "[35m[1mPOST /dbproj/surgery/1 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:33:01] "POST /dbproj/surgery/1 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:34:17] "POST /dbproj/surgery/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:34:18] "POST /dbproj/surgery/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:34:20] "POST /dbproj/surgery/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:34:21] "POST /dbproj/surgery/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:34:25] "POST /dbproj/surgery/1 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:38:16] "[31m[1mPOST /dbproj/surgery/1 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:38:23] "[31m[1mPOST /dbproj/surgery/1 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:38:31] "[31m[1mPOST /dbproj/surgery/1 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:38:39] "[31m[1mPOST /dbproj/surgery/1 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:38:47] "POST /dbproj/surgery/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:39:16] "[33mPOST /dbproj/surgery/ HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:39:28] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:40:12] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:40:18] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:40:25] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:40:29] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:40:33] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:40:56] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:41:01] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:43:07] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:43:40] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:48:38] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:48:41] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:48:53] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:49:53] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:53:47] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:55:04] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:55:49] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:55:51] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 19:55:53] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:00:15] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:00:17] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:00:23] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:01:29] "[31m[1mPOST /dbproj/surgery/9 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:01:42] "POST /dbproj/surgery/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:02:29] "[31m[1mPOST /dbproj/surgery/9 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:02:57] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:03:20] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:03:27] "[31m[1mPOST /dbproj/surgery/0 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:03:32] "[35m[1mPOST /dbproj/surgery/0 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:04:26] "[31m[1mPOST /dbproj/surgery/0 HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:04:29] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:05:23] "[31m[1mPOST /dbproj/surgery/0 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:05:33] "POST /dbproj/surgery/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:05:50] "[31m[1mPOST /dbproj/surgery/1 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:05:54] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:06:08] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:06:24] "[31m[1mPOST /dbproj/surgery/1 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:06:28] "POST /dbproj/surgery/1 HTTP/1.1" 200 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:49:28] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:49:30] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:49:32] "POST /dbproj/register/nurse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:49:34] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:49:45] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:49:56] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 20:50:08] "POST /dbproj/appointment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:07:23] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:07:26] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:07:28] "POST /dbproj/register/nurse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:07:32] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:07:37] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:07:48] "POST /dbproj/appointment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:07:52] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:08:06] "GET /dbproj/appointments/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:08:17] "[35m[1mPOST /dbproj/surgery HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:11:07] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:11:13] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:11:15] "POST /dbproj/register/nurse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:11:17] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:11:23] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:11:40] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:16:10] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:16:14] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:19:31] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:19:35] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:19:46] "POST /dbproj/appointment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:42:01] "[31m[1mGET /dbproj/prescriptions/1 HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:42:17] "[33mGET /dbproj/prescriptions/{person_id} HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:42:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:42:34] "[33mGET /dbproj/prescriptions/{person_id} HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:43:00] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:43:09] "[35m[1mGET /dbproj/prescriptions/1 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 21:52:52] "GET /dbproj/prescriptions/1 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:09:32] "[31m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:09:55] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:10:02] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:10:15] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:11:02] "[35m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:17:55] "[35m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:19:28] "[35m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:19:40] "[35m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:23:03] "[35m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:24:48] "[35m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:25:01] "[31m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:27:09] "[31m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:27:17] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:27:28] "[31m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 400 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:28:55] "[35m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:29:47] "[35m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:30:29] "[35m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:30:31] "[35m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:31:08] "[35m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:31:31] "[35m[1mPOST /dbproj/prescription/ HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:32:17] "POST /dbproj/prescription/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:32:42] "POST /dbproj/prescription/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:37:01] "[31m[1mGET /dbproj/prescriptions/1 HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:37:45] "GET /dbproj/prescriptions/1 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:42:15] "POST /dbproj/prescription/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:42:37] "[31m[1mGET /dbproj/prescriptions/1 HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:42:51] "[31m[1mGET /dbproj/prescriptions/1 HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:42:55] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:43:12] "GET /dbproj/prescriptions/1 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:47:26] "[31m[1mPOST /dbproj/bills/1 HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:47:32] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:47:42] "[35m[1mPOST /dbproj/bills/1 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:50:13] "[35m[1mPOST /dbproj/bills/1 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:50:15] "[35m[1mPOST /dbproj/bills/1 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:52:28] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:52:40] "[35m[1mGET /dbproj/top3 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:53:00] "[35m[1mGET /dbproj/daily/{year-month-day} HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:53:09] "[35m[1mGET /dbproj/report HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 22:59:11] "[35m[1mPOST /dbproj/bills/1 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:00:39] "[35m[1mPOST /dbproj/bills/1 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:01:28] "POST /dbproj/bills/1 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:04:52] "[31m[1mPOST /dbproj/bills/1 HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:05:03] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:05:17] "POST /dbproj/bills/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:06:06] "[31m[1mPOST /dbproj/bills/2 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:06:09] "POST /dbproj/bills/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:06:14] "POST /dbproj/bills/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:06:22] "POST /dbproj/bills/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:06:26] "POST /dbproj/bills/1 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:11:16] "[31m[1mGET /dbproj/top3 HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:11:22] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:11:34] "[35m[1mGET /dbproj/top3 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:12:47] "[35m[1mGET /dbproj/top3 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:14:21] "[35m[1mGET /dbproj/top3 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:15:35] "[35m[1mGET /dbproj/top3 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:15:36] "[35m[1mGET /dbproj/top3 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:15:38] "[35m[1mGET /dbproj/top3 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:16:41] "[35m[1mGET /dbproj/top3 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:16:43] "[35m[1mGET /dbproj/top3 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:17:43] "GET /dbproj/top3 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:19:21] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:20:01] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:20:16] "GET /dbproj/top3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:20:39] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:20:55] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:21:01] "POST /dbproj/appointment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:21:12] "GET /dbproj/top3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:22:35] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:22:44] "GET /dbproj/top3 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:23:39] "GET /dbproj/top3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:23:40] "GET /dbproj/top3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:23:42] "GET /dbproj/top3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:23:54] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:24:04] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:24:09] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:24:41] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:24:43] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:24:47] "GET /dbproj/top3 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:26:07] "[35m[1mPOST /dbproj/bills/2 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:26:53] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:29:01] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:29:08] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:29:10] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:29:13] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:29:41] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:29:43] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:29:45] "[31m[1mPOST /dbproj/bills/2 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:29:54] "[31m[1mGET /dbproj/top3 HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:30:06] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:30:20] "GET /dbproj/top3 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:33:43] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:33:55] "[31m[1mGET /dbproj/daily/{year-month-day} HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:34:52] "[35m[1mGET /dbproj/daily/2027-03-08 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:35:27] "[35m[1mGET /dbproj/daily/2027-03-08 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:36:03] "[35m[1mGET /dbproj/daily/2027-03-08 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:36:06] "[35m[1mGET /dbproj/daily/2027-03-08 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:36:07] "[35m[1mGET /dbproj/daily/2027-03-08 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:36:59] "[35m[1mGET /dbproj/daily/2027-03-08 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:37:00] "[35m[1mGET /dbproj/daily/2027-03-08 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:39:08] "[35m[1mGET /dbproj/daily/2027-03-08 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:39:09] "[35m[1mGET /dbproj/daily/2027-03-08 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:39:10] "[35m[1mGET /dbproj/daily/2027-03-08 HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:41:39] "[35m[1mGET /dbproj/report HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:42:32] "[35m[1mGET /dbproj/report HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:42:34] "[35m[1mGET /dbproj/report HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080

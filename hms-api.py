@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime
+from datetime import datetime, timedelta
 from re import match
 import psycopg2
 import logging
@@ -134,9 +134,10 @@ def get_common_user_data(common_data):
 
     # Obter data de nascimento
     birth_date = common_data.get('birth_date', None)
-    validation_error = validate_date_format(birth_date)
-    if validation_error:
-        return {"msg": validation_error}, 400
+    if birth_date is not None:
+        validation_error = validate_date_format(birth_date)
+        if validation_error:
+            return {"msg": validation_error}, 400
 
     # Obter morada
     address = common_data.get('address', None)
@@ -186,18 +187,20 @@ def get_employee_contract_data(username, contract_data):
 
     # Obter data de início
     start_date = contract_data.get('start_date')
-    validation_error = validate_date_format(start_date)
-    if validation_error:
-        return {"msg": validation_error}, 400
+    if start_date is not None:
+        validation_error = validate_date_format(start_date)
+        if validation_error:
+            return {"msg": validation_error}, 400
 
     # Obter duração
     duration = contract_data.get('duration')
 
     # Obter data de fim
     end_date = contract_data.get('end_date')
-    validation_error = validate_date_format(end_date)
-    if validation_error:
-        return {"msg": validation_error}, 400
+    if end_date is not None:
+        validation_error = validate_date_format(end_date)
+        if validation_error:
+            return {"msg": validation_error}, 400
 
     if not salary or not start_date:
         return {"msg": "Salary and start date are required"}, 400
@@ -478,7 +481,7 @@ def login():
             access_token = create_access_token(identity=username)
             return jsonify(access_token=access_token), 200
         else:
-            return jsonify({"msg": "Bad username or password"}), 400
+            return jsonify({"msg": "Bad password"}), 400
     finally:
         cur.close()
         db.close()
@@ -500,6 +503,12 @@ def schedule_appointment():
     # Obter o nome do paciente que está a fazer o pedido
     patient_user = get_jwt_identity()
 
+    # Verificar se o utilizador é um paciente
+    cur.execute("SELECT 1 FROM patient WHERE LOWER(person_username) = LOWER(%s)", (patient_user,))
+    is_patient = cur.fetchone()
+    if is_patient is None:
+        return jsonify({"msg": "Access denied. Only patients can schedule appointments."}), 400
+
     # Obter o 'id' do médico para o qual o paciente quer marcar a consulta
     doctor_user = request.json.get('doctor_id')
     cur.execute("SELECT 1 FROM doctors WHERE LOWER(employee_contract_person_username) = LOWER(%s)", (doctor_user,))
@@ -509,9 +518,10 @@ def schedule_appointment():
 
     # Obter a data e hora da consulta
     date = request.json.get('date')
-    validation_error = validate_date_time_format(date)
-    if validation_error:
-        return jsonify({"msg": validation_error}), 400
+    if date is not None:
+        validation_error = validate_date_time_format(date)
+        if validation_error:
+            return jsonify({"msg": validation_error}), 400
 
     if not doctor_user or not date:
         return jsonify({"msg": "All fields are required"}), 400
@@ -526,6 +536,17 @@ def schedule_appointment():
     appointment_exists = cur.fetchone()
     if appointment_exists is not None:
         return jsonify({"msg": "Doctor is not available at the given date and time"}), 400
+
+    # Verificar se o paciente já tem uma consulta marcada para a data e hora pretendida
+    cur.execute("""
+            SELECT 1 
+            FROM appointments
+            WHERE LOWER(patient_person_username) = LOWER(%s) 
+            AND appointment_date = %s
+        """, (patient_user, date))
+    appointment_exists = cur.fetchone()
+    if appointment_exists is not None:
+        return jsonify({"msg": "Patient already has an appointment scheduled at the given date and time"}), 400
 
     # Marcar a consulta
     try:
@@ -553,17 +574,37 @@ def schedule_appointment():
 @app.route('/dbproj/appointments/<int:patient_user_id>', methods=['GET'])
 @jwt_required()
 def see_appointments(patient_user_id):
-    # Verify the identity and rights to access this patient's appointments
-    current_user = get_jwt_identity()
-    if current_user != patient_user_id:
-        return jsonify({"status": 401, "errors": "Unauthorized access"}), 401
-
+    # Conectar à base de dados
     db = db_connection()
     cur = db.cursor()
+
+    # Obter o nome do paciente ou assistente que está a fazer o pedido
+    current_user = get_jwt_identity()
+
+    # Verificar se o utilizador é um paciente ou um assistente
+    cur.execute("SELECT 1 FROM patient WHERE LOWER(person_username) = LOWER(%s)", (current_user,))
+    is_patient = cur.fetchone()
+    if is_patient is None:
+        cur.execute("SELECT 1 FROM assistants WHERE LOWER(employee_contract_person_username) = LOWER(%s)",
+                    (current_user,))
+        is_assistant = cur.fetchone()
+        if is_assistant is None:
+            return jsonify({"msg": "Access denied. Only assistants/target patient can see appointments."}), 400
+
+    # Obter username do paciente a consultar
+    cur.execute("SELECT person_username FROM patient WHERE patient_id = %s", (patient_user_id,))
+    patient_name_result = cur.fetchone()
+    if patient_name_result is None:
+        return jsonify({"msg": "Patient not found"}), 400
+    patient_name = patient_name_result[0]
+
+    # Devolver as consultas marcadas para o paciente
     try:
         cur.execute('''SELECT appointment_id, doctors_employee_contract_person_username, appointment_date
-                       FROM appointments WHERE patient_person_username = %s''', (patient_user_id,))
+                       FROM appointments WHERE LOWER(patient_person_username) = LOWER(%s)''', (patient_name,))
         appointments = cur.fetchall()
+        if appointments is None:
+            return jsonify({"msg": "No appointments found"}), 400
         results = [{"id": appt[0], "doctor_id": appt[1], "date": appt[2]} for appt in appointments]
         return jsonify({"status": 200, "results": results}), 200
     finally:
@@ -575,26 +616,110 @@ def see_appointments(patient_user_id):
 # SCHEDULE SURGERY
 ##########################################################
 @app.route('/dbproj/surgery', methods=['POST'])
+@app.route('/dbproj/surgery/<int:hospitalization_id>', methods=['POST'])
 @jwt_required()
-def schedule_surgery():
-    patient_id = request.json.get('patient_id')
-    doctor_id = request.json.get('doctor')
-    nurses = request.json.get('nurses')  # List of [nurse_id, role]
-    date = request.json.get('date')
+def schedule_surgery(hospitalization_id=None):
+    if not request.is_json:
+        return jsonify({"msg": "Missing JSON in request"}), 400
 
+    # Conectar à base de dados
     db = db_connection()
     cur = db.cursor()
+
+    # Obter o nome do assistente que está a fazer o pedido
+    current_user = get_jwt_identity()
+
+    # Verificar se o utilizador é um assistente
+    cur.execute('SELECT 1 FROM assistants WHERE LOWER(employee_contract_person_username) = LOWER(%s)', (current_user,))
+    is_assistant = cur.fetchone()
+    if is_assistant is None:
+        return jsonify({"msg": "Access denied. Only assistants can schedule surgeries."}), 400
+
+    # Obter os dados da cirurgia
+    patient_id = request.json.get('patient_id')
+    validation_error = validate_username(patient_id)
+    if validation_error:
+        return jsonify({"msg": validation_error}), 400
+    cur.execute('SELECT 1 FROM patient WHERE LOWER(person_username) = LOWER(%s)', (patient_id,))
+    patient_exists = cur.fetchone()
+    if patient_exists is None:
+        return jsonify({"msg": "Patient not found"}), 400
+
+    doctor = request.json.get('doctor')
+    validation_error = validate_username(doctor)
+    if validation_error:
+        return jsonify({"msg": validation_error}), 400
+    cur.execute('SELECT 1 FROM doctors WHERE LOWER(employee_contract_person_username) = LOWER(%s)', (doctor,))
+    doctor_exists = cur.fetchone()
+    if doctor_exists is None:
+        return jsonify({"msg": "Doctor not found"}), 400
+
+    nurses = request.json.get('nurses')
+    for nurse in nurses:
+        validation_error = validate_username(nurse[0])
+        if validation_error:
+            return jsonify({"msg": validation_error}), 400
+        cur.execute('SELECT 1 FROM nurses WHERE LOWER(employee_contract_person_username) = LOWER(%s)', (nurse[0],))
+        nurse_exists = cur.fetchone()
+        if nurse_exists is None:
+            return jsonify({"msg": "Nurse not found"}), 400
+
+    date = request.json.get('date')
+    if date is not None:
+        validation_error = validate_date_time_format(date)
+        if validation_error:
+            return jsonify({"msg": validation_error}), 400
+
+    if not patient_id or not doctor or not nurses or not date:
+        return jsonify({"msg": "All fields are required"}), 400
+
+    # Verificar se o médico está disponível na data e hora pretendida
+    cur.execute("""
+        SELECT 1 
+        FROM surgeries
+        WHERE LOWER(doctors_employee_contract_person_username) = LOWER(%s) 
+        AND surgery_date = %s
+    """, (doctor, date))
+    surgery_exists = cur.fetchone()
+    if surgery_exists is not None:
+        return jsonify({"msg": "Doctor is not available at the given date and time"}), 400
+
+    # Verificar se o 'id' de hospitalização é válido
+    if hospitalization_id is not None:
+        cur.execute('SELECT 1 FROM hospitalizations WHERE hospitalization_id = %s', (hospitalization_id,))
+        hospitalization_exists = cur.fetchone()
+        if hospitalization_exists is None:
+            return jsonify({"msg": "Hospitalization not found"}), 400
+
     try:
-        # Insert the surgery and perhaps a new hospitalization
-        cur.execute('''INSERT INTO surgeries (patient_id, doctor_id, date)
-                       VALUES (%s, %s, %s) RETURNING surgery_id''', (patient_id, doctor_id, date))
+        # Se ainda não existir uma hospitalização associada, criar uma
+        if hospitalization_id is None:
+            date_obj = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+            begin_date_obj = date_obj - timedelta(days=3)
+            end_date_obj = date_obj + timedelta(days=3)
+
+            cur.execute('''INSERT INTO hospitalizations (begin_date, end_date, patient_person_username, 
+            assistants_employee_contract_person_username, nurses_employee_contract_person_username)
+            VALUES (%s, %s, %s, %s, %s) RETURNING hospitalization_id''',
+                        (begin_date_obj.strftime('%Y-%m-%d %H:%M:%S'),
+                         end_date_obj.strftime('%Y-%m-%d %H:%M:%S'), patient_id, current_user, nurses[0][0]))
+            hospitalization_id = cur.fetchone()[0]
+
+        # Inserir a cirurgia
+        cur.execute('''INSERT INTO surgeries (surgery_date, hospitalizations_hospitalization_id, 
+        doctors_employee_contract_person_username) VALUES (%s, %s, %s) RETURNING surgery_id''',
+                    (date, hospitalization_id, doctor))
         surgery_id = cur.fetchone()[0]
-        # Insert nurses involved in the surgery
+
+        # Inserir os enfermeiros associados à cirurgia
         for nurse in nurses:
-            cur.execute('''INSERT INTO surgery_nurses (surgery_id, nurse_id, role)
-                           VALUES (%s, %s, %s)''', (surgery_id, nurse[0], nurse[1]))
+            cur.execute('''INSERT INTO nurses_surgeries (nurses_employee_contract_person_username, surgeries_surgery_id)
+                                   VALUES (%s, %s)''', (nurse[0], surgery_id))
+
         db.commit()
-        return jsonify({"status": 201, "results": {"surgery_id": surgery_id}}), 201
+        return jsonify({"status": 200, "results": {"hospitalization_id": hospitalization_id, "surgery_id": surgery_id,
+                                                   "patient_id": patient_id, "doctor_id": doctor,
+                                                   "date": date}}), 200
     except Exception as e:
         db.rollback()
         return jsonify({"status": 500, "errors": str(e)}), 500
@@ -609,14 +734,51 @@ def schedule_surgery():
 @app.route('/dbproj/prescriptions/<int:person_id>', methods=['GET'])
 @jwt_required()
 def get_prescriptions(person_id):
+    # Conectar à base de dados
     db = db_connection()
     cur = db.cursor()
+
+    # Verificar se o 'id' do paciente é válido
+    cur.execute('SELECT person_username FROM patient WHERE patient_id = %s', (person_id,))
+    patient_exists = cur.fetchone()
+    if patient_exists is None:
+        return jsonify({"msg": "Patient not found"}), 400
+    patient_username = patient_exists[0]
+
     try:
-        cur.execute('''SELECT prescription_id, validity, dosage, frequency, medicine_name
-                       FROM prescriptions WHERE person_id = %s''', (person_id,))
+        cur.execute('''
+                   SELECT p.prescription_id, p.prescription_date, pos.dosage, pos.frequency, m.medicine_name
+                   FROM prescriptions p
+                   JOIN hospitalizations_prescriptions hp ON p.prescription_id = hp.prescriptions_prescription_id
+                   JOIN hospitalizations h ON hp.hospitalizations_hospitalization_id = h.hospitalization_id
+                   JOIN posology pos ON p.prescription_id = pos.prescriptions_prescription_id
+                   JOIN medicines m ON pos.medicines_medicine_name = m.medicine_name
+                   WHERE h.patient_person_username = %s
+                   UNION
+                   SELECT p.prescription_id, p.prescription_date, pos.dosage, pos.frequency, m.medicine_name
+                   FROM prescriptions p
+                   JOIN appointments_prescriptions ap ON p.prescription_id = ap.prescriptions_prescription_id
+                   JOIN appointments a ON ap.appointments_appointment_id = a.appointment_id
+                   JOIN posology pos ON p.prescription_id = pos.prescriptions_prescription_id
+                   JOIN medicines m ON pos.medicines_medicine_name = m.medicine_name
+                   WHERE a.patient_person_username = %s
+               ''', (patient_username, patient_username))
+
         prescriptions = cur.fetchall()
-        results = [{"id": pres[0], "validity": pres[1], "posology": {"dose": pres[2], "frequency": pres[3],
-                                                                     "medicine": pres[4]}} for pres in prescriptions]
+        results = [
+            {
+                "id": pres[0],
+                "validity": pres[1],
+                "posology": [
+                    {
+                        "dose": pres[2],
+                        "frequency": pres[3],
+                        "medicine": pres[4]
+                    }
+                ]
+            }
+            for pres in prescriptions
+        ]
         return jsonify({"status": 200, "results": results}), 200
     finally:
         cur.close()
@@ -629,21 +791,71 @@ def get_prescriptions(person_id):
 @app.route('/dbproj/prescription/', methods=['POST'])
 @jwt_required()
 def add_prescription():
-    event_id = request.json.get('event_id')
-    req_type = request.json.get('type')  # "hospitalization" or "appointment"
-    validity = request.json.get('validity')
-    medicines = request.json.get('medicines')  # List of medicine details
+    if not request.is_json:
+        return jsonify({"msg": "Missing JSON in request"}), 400
 
+    # Conectar à base de dados
     db = db_connection()
     cur = db.cursor()
+
+    # Obter os dados da prescrição
+    req_type = request.json.get('type')  # "hospitalization" or "appointment"
+    if req_type not in ['hospitalization', 'appointment']:
+        return jsonify({"msg": "Invalid request type"}), 400
+
+    event_id = request.json.get('event_id')
+    if not str(event_id).isdigit():
+        return jsonify({"msg": "Event ID must contain only digits"}), 400
+
+    validity = request.json.get('validity')
+    validation_error = validate_date_format(validity)
+    if validation_error:
+        return jsonify({"msg": validation_error}), 400
+
+    medicines = request.json.get('medicines')
+    for med in medicines:
+        cur.execute('SELECT 1 FROM medicines WHERE LOWER(medicine_name) = LOWER(%s)', (med.get('medicine'),))
+        med_exists = cur.fetchone()
+        if med_exists is None:
+            return jsonify({"msg": "Medicine not found"}), 400
+
+    if not req_type or not event_id or not validity or not medicines:
+        return jsonify({"msg": "All fields are required"}), 400
+
+    current_user = get_jwt_identity()
+
+    # Verificar se o utilizador é um médico
+    cur.execute('SELECT 1 FROM doctors WHERE LOWER(employee_contract_person_username) = LOWER(%s)', (current_user,))
+    if not cur.fetchone():
+        return jsonify({"msg": "Only doctors can add prescriptions"}), 400
+
     try:
+        # Inserir prescrição
+        cur.execute('INSERT INTO prescriptions (prescription_date) VALUES (%s) RETURNING prescription_id', (validity,))
+        prescription_id = cur.fetchone()[0]
+
+        # Inserir posologia e eventos associados
         for medicine in medicines:
-            cur.execute('''INSERT INTO prescriptions (event_id, type, validity, medicine_name, dosage, frequency)
-                           VALUES (%s, %s, %s, %s, %s, %s) RETURNING prescription_id''',
-                        (event_id, req_type, validity, medicine['medicine'], medicine['posology_dose'],
-                         medicine['posology_frequency']))
+            medicine_name = medicine.get('medicine')
+            posology_dose = medicine.get('posology_dose')
+            posology_frequency = medicine.get('posology_frequency')
+
+            # Inserir detalhes de posologia
+            cur.execute(
+                'INSERT INTO posology (dosage, frequency, prescriptions_prescription_id, medicines_medicine_name)'
+                'VALUES (%s, %s, %s, %s)', (posology_dose, posology_frequency, prescription_id, medicine_name))
+
+        # Associar a prescrição ao evento associado
+        if req_type == 'hospitalization':
+            cur.execute(
+                'INSERT INTO hospitalizations_prescriptions (hospitalizations_hospitalization_id, '
+                'prescriptions_prescription_id)'' VALUES (%s, %s)', (event_id, prescription_id))
+        elif req_type == 'appointment':
+            cur.execute(
+                'INSERT INTO appointments_prescriptions (appointments_appointment_id, prescriptions_prescription_id) '
+                'VALUES (%s, %s)', (event_id, prescription_id))
         db.commit()
-        return jsonify({"status": 201, "results": "Prescription added"}), 201
+        return jsonify({"status": 200, "results": {"prescription_id": prescription_id}}), 200
     except Exception as e:
         db.rollback()
         return jsonify({"status": 500, "errors": str(e)}), 500
@@ -658,27 +870,65 @@ def add_prescription():
 @app.route('/dbproj/bills/<int:bill_id>', methods=['POST'])
 @jwt_required()
 def execute_payment(bill_id):
-    current_user = get_jwt_identity()  # Assuming the identity is the patient's username
+    # Conectar à base de dados
+    db = db_connection()
+    cur = db.cursor()
+
+    current_user = get_jwt_identity()
+
+    # Obter os dados do pagamento
     amount = request.json.get('amount')
     payment_method = request.json.get('payment_method')
 
-    db = db_connection()
-    cur = db.cursor()
+    if amount is None or payment_method is None:
+        return jsonify({"status": 400, "errors": "Missing payment details"}), 400
+
+    # Verificar se o 'bill_id' é válido
+    cur.execute('SELECT 1 FROM bills WHERE bill_id = %s', (bill_id,))
+    if not cur.fetchone():
+        return jsonify({"msg": "Bill not found"}), 400
+
     try:
-        cur.execute('SELECT patient_person_username, total_amount FROM bills WHERE bill_id = %s', (bill_id,))
+        # Verificar se o utilizador é o dono da fatura
+        cur.execute('''
+                    SELECT b.total_price, COALESCE(SUM(p.payment_amount), 0) AS total_paid, pa.person_username
+                    FROM bills b
+                    LEFT JOIN payments p ON b.bill_id = p.payment_id
+                    LEFT JOIN appointments_bills ab ON b.bill_id = ab.appointments_appointment_id
+                    LEFT JOIN appointments a ON ab.appointments_appointment_id = a.appointment_id
+                    LEFT JOIN patient pa ON a.patient_person_username = pa.person_username
+                    WHERE b.bill_id = %s
+                    GROUP BY b.bill_id, b.total_price, pa.person_username
+                ''', (bill_id,))
         bill = cur.fetchone()
+
         if not bill:
             return jsonify({"status": 404, "errors": "Bill not found"}), 404
-        if bill[0] != current_user:
+
+        total_price, total_paid, bill_owner = bill
+
+        if bill_owner != current_user:
             return jsonify({"status": 401, "errors": "Unauthorized"}), 401
 
-        new_remaining_value = bill[1] - amount
-        if new_remaining_value <= 0:
-            cur.execute('UPDATE bills SET status = %s WHERE bill_id = %s', ('paid', bill_id))
-        cur.execute('INSERT INTO payments (bill_id, amount, payment_method) VALUES (%s, %s, %s)',
-                    (bill_id, amount, payment_method))
+        # Calcular o valor restante
+        new_remaining_value = total_price - amount
+        if new_remaining_value < 0:
+            return jsonify({"status": 400, "errors": "Payment exceeds the remaining bill amount"}), 400
+
+        # Inserir o pagamento
+        cur.execute('''
+                    INSERT INTO payments (payment_amount, deadline_date)
+                    VALUES (%s, NOW())
+                ''', (amount,))
+
+        # Atualizar o estado do pagamento, se totalmente pago
+        cur.execute('UPDATE bills SET total_price = %s WHERE bill_id = %s', (new_remaining_value, bill_id))
+        if new_remaining_value == 0:
+            cur.execute('UPDATE bills SET payment_method = %s WHERE bill_id = %s', (payment_method, bill_id))
+
         db.commit()
         return jsonify({"status": 200, "results": new_remaining_value}), 200
+
     except Exception as e:
         db.rollback()
         return jsonify({"status": 500, "errors": str(e)}), 500
@@ -693,21 +943,36 @@ def execute_payment(bill_id):
 @app.route('/dbproj/top3', methods=['GET'])
 @jwt_required()
 def list_top_three_patients():
+    # Conectar à base de dados
     db = db_connection()
     cur = db.cursor()
+
+    current_user = get_jwt_identity()
+
+    # Verificar se o utilizador é um assistente
+    cur.execute('SELECT 1 FROM assistants WHERE LOWER(employee_contract_person_username) = LOWER(%s)', (current_user,))
+    if not cur.fetchone():
+        return jsonify({"msg": "Only assistants can see top 3"}), 400
+
     try:
-        # Sample SQL to list top 3 spending patients
         cur.execute('''
-        SELECT patient_name, SUM(amount) as total_spent
-        FROM payments JOIN patients ON payments.patient_id = patients.id
-        WHERE payment_date >= date_trunc('month', current_date)
-        GROUP BY patient_name
-        ORDER BY total_spent DESC
-        LIMIT 3
+            SELECT p.person_username, SUM(pa.payment_amount) AS total_spent, 
+                   json_agg(json_build_object('id', a.appointment_id, 
+                                              'doctor_id', a.doctors_employee_contract_person_username, 
+                                              'date', a.appointment_date)) AS procedures
+            FROM patient p 
+            LEFT JOIN appointments a ON p.person_username = a.patient_person_username
+            LEFT JOIN payments pa ON a.appointment_id = pa.payment_id
+            WHERE EXTRACT(MONTH FROM pa.deadline_date) = EXTRACT(MONTH FROM CURRENT_DATE)
+            GROUP BY p.person_username
+            ORDER BY total_spent DESC
+            LIMIT 3
         ''')
         top_patients = cur.fetchall()
-        results = [{"patient_name": pat[0], "amount_spent": pat[1]} for pat in top_patients]
+        results = [{"person_username": pat[0], "amount_spent": pat[1], "procedures": pat[2]} for pat in top_patients]
         return jsonify({"status": 200, "results": results}), 200
+    except Exception as e:
+        return jsonify({"status": 500, "errors": str(e)}), 500
     finally:
         cur.close()
         db.close()
@@ -719,19 +984,43 @@ def list_top_three_patients():
 @app.route('/dbproj/daily/<date>', methods=['GET'])
 @jwt_required()
 def daily_summary(date):
+    # Conectar à base de dados
     db = db_connection()
     cur = db.cursor()
+
+    current_user = get_jwt_identity()
+
+    # Verificar se o utilizador é um assistente
+    cur.execute('SELECT 1 FROM assistants WHERE LOWER(employee_contract_person_username) = LOWER(%s)', (current_user,))
+    if not cur.fetchone():
+        return jsonify({"msg": "Only assistants can see daily summary"}), 400
+
     try:
-        # Sample SQL to get daily summary
+        # Verificar se a data está no formato correto (YYYY-MM-DD)
+        try:
+            datetime.strptime(date, '%Y-%m-%d')
+        except ValueError:
+            return jsonify({"status": 400, "errors": "Invalid date format. Please use YYYY-MM-DD."}), 400
+
         cur.execute('''
-        SELECT SUM(amount) as amount_spent, COUNT(DISTINCT surgery_id) as surgeries, 
-        COUNT(DISTINCT prescription_id) as prescriptions
-        FROM hospitalizations
-        WHERE entry_date = %s
+            SELECT 
+                COALESCE(SUM(b.total_price), 0) as amount_spent, 
+                COUNT(DISTINCT s.surgery_id) as surgeries, 
+                COUNT(DISTINCT p.prescription_id) as prescriptions
+            FROM hospitalizations h
+            LEFT JOIN surgeries s ON h.hospitalization_id = s.hospitalizations_hospitalization_id
+            LEFT JOIN hospitalizations_prescriptions hp ON h.hospitalization_id = hp.hospitalizations_hospitalization_id
+            LEFT JOIN prescriptions p ON hp.prescriptions_prescription_id = p.prescription_id
+            LEFT JOIN bills b ON h.hospitalization_id = b.hospitalizations_hospitalization_id
+            WHERE h.entry_date = %s
         ''', (date,))
+
         summary = cur.fetchone()
         results = {"amount_spent": summary[0], "surgeries": summary[1], "prescriptions": summary[2]}
+
         return jsonify({"status": 200, "results": results}), 200
+    except Exception as e:
+        return jsonify({"status": 500, "errors": str(e)}), 500
     finally:
         cur.close()
         db.close()
@@ -743,19 +1032,29 @@ def daily_summary(date):
 @app.route('/dbproj/report', methods=['GET'])
 @jwt_required()
 def generate_monthly_report():
+    # Conectar à base de dados
     db = db_connection()
     cur = db.cursor()
+
+    current_user = get_jwt_identity()
+
+    # Verificar se o utilizador é um assistente
+    cur.execute('SELECT 1 FROM assistants WHERE LOWER(employee_contract_person_username) = LOWER(%s)', (current_user,))
+    if not cur.fetchone():
+        return jsonify({"msg": "Only assistants can generate a monthly report"}), 400
+
     try:
         # Sample SQL to get monthly report for doctors with most surgeries
         cur.execute('''
-        SELECT EXTRACT(MONTH FROM surgery_date) as month, doctor_name, COUNT(surgery_id) as total_surgeries
-        FROM surgeries JOIN doctors ON surgeries.doctor_id = doctors.id
+        SELECT EXTRACT(MONTH FROM surgery_date) as month, doctors.doctor_name, COUNT(surgery_id) as total_surgeries
+        FROM surgeries 
+        JOIN doctors ON surgeries.doctors_employee_contract_person_username = doctors.employee_contract_person_username
         WHERE surgery_date > current_date - INTERVAL '1 YEAR'
-        GROUP BY month, doctor_name
+        GROUP BY month, doctors.doctor_name
         ORDER BY month, total_surgeries DESC
         ''')
         reports = cur.fetchall()
-        results = [{"month": report[0], "doctor": report[1], "surgeries": report[2]} for report in reports]
+        results = [{"month": int(report[0]), "doctor": report[1], "surgeries": report[2]} for report in reports]
         return jsonify({"status": 200, "results": results}), 200
     finally:
         cur.close()
