@@ -683,3 +683,198 @@ INFO:werkzeug:127.0.0.1 - - [27/May/2024 20:04:41] "[31m[1mPOST /dbproj/regist
 INFO:werkzeug:127.0.0.1 - - [27/May/2024 20:04:57] "[35m[1mPOST /dbproj/register/nurse HTTP/1.1[0m" 201 -
 INFO:werkzeug:127.0.0.1 - - [27/May/2024 20:05:03] "[35m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 201 -
 INFO:werkzeug:127.0.0.1 - - [27/May/2024 20:05:08] "[35m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 201 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 21:47:04] "[33mPUT /dbproj/user HTTP/1.1[0m" 404 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 21:48:54] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 405 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 21:49:00] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 405 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 21:50:48] "[33mPUT /dbproj/user HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 21:51:18] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 21:51:35] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [27/May/2024 21:52:43] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 11:48:45] "GET /dbproj HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 11:48:53] "[35m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 11:51:17] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 11:52:32] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 11:53:01] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 11:55:19] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 11:55:24] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 11:57:47] "[31m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 11:58:07] "[35m[1mPOST /dbproj/register/nurse HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:06:09] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:06:15] "[31m[1mPOST /dbproj/register/nurse HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:06:32] "[35m[1mPOST /dbproj/register/nurse HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:12:26] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:12:29] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:12:31] "[31m[1mPOST /dbproj/register/assistant HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:12:33] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:12:40] "POST /dbproj/register/nurse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:12:47] "[31m[1mPOST /dbproj/register/nurse HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:13:04] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:14:43] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:15:04] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:15:32] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:15:49] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:16:02] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:17:21] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:18:32] "[35m[1mPOST /dbproj/appointment HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:29:57] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:30:01] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:30:04] "POST /dbproj/register/nurse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:30:07] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:30:47] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:31:32] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:31:41] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:31:45] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:32:11] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:32:19] "[35m[1mPOST /dbproj/appointment HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:37:19] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:37:23] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:37:26] "POST /dbproj/register/nurse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:37:29] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:37:48] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:38:10] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:38:15] "[35m[1mPOST /dbproj/appointment HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:45:55] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:45:59] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:46:02] "POST /dbproj/register/nurse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:46:03] "[31m[1mPOST /dbproj/register/nurse HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:46:06] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:46:09] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:46:36] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 12:46:46] "[35m[1mPOST /dbproj/appointment HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:30:03] "GET /dbproj HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:30:10] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:30:14] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:30:17] "POST /dbproj/register/nurse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:30:20] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:30:23] "[31m[1mPOST /dbproj/register/doctor HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:30:31] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:30:43] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:30:48] "[35m[1mPOST /dbproj/appointment HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:35:53] "[35m[1mPOST /dbproj/appointment HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:45:53] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:45:58] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 15:46:16] "[35m[1mPOST /dbproj/appointment HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\Carolina\\PycharmProjects\\HMS\\hms-api.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:02:04] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:02:13] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:02:17] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:02:20] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:02:23] "POST /dbproj/register/nurse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:02:26] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:02:30] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:02:49] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:02:57] "[35m[1mPOST /dbproj/appointment HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 803-304-175
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:04:02] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:04:27] "POST /dbproj/appointment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [28/May/2024 16:04:58] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -

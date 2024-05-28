@@ -9,7 +9,7 @@ import logging
 app = Flask(__name__)
 
 # Configuração do JWT
-app.config['JWT_SECRET_KEY'] = 'aY21z'  # Chave secreta forte e segura
+app.config['JWT_SECRET_KEY'] = 'aY21z'
 jwt = JWTManager(app)
 
 # Lista de códigos de 'status'
@@ -52,72 +52,105 @@ def landing_page():
 
 
 ##########################################################
-# CHECK COMMON USER DATA
+# OTHER FUNCTIONS
 ##########################################################
-def validate_user_data(username, email, password, name, mobile_number, birth_date, address):
-    if not username or not email or not password or not name or not mobile_number or not birth_date or not address:
-        return "All fields are required"
-
+def validate_username(username):
     if not match(r'^[a-zA-Z0-9]+$', username):
         return "Username must contain only letters and numbers"
-
-    if any(char.isdigit() for char in name):
-        return "Name must not contain numbers"
-
-    if not match(r'^\d{9}$', str(mobile_number)):
-        return "Mobile number must contain exactly 9 digits"
-
-    try:
-        datetime.strptime(birth_date, '%Y-%m-%d')
-    except ValueError:
-        return "Incorrect date format, should be YYYY-MM-DD"
-
-    if not match(r'^[^@]+@[^@]+\.[^@]+$', email):
-        return "Invalid email format"
-
     return None
 
 
-##########################################################
-# CHECK EMPLOYEE CONTRACT DATA
-##########################################################
-def validate_contract_data(salary, start_date, end_date):
-    if not salary or not start_date:
-        return "Salary and start date are required"
+def validate_name(name):
+    if any(char.isdigit() for char in name):
+        return "Name must not contain numbers"
+    return None
 
-    if not str(salary).isdigit():
-        return "Salary must contain only digits"
 
-    try:
-        datetime.strptime(start_date, '%Y-%m-%d')
-    except ValueError:
-        return "Incorrect date format, should be YYYY-MM-DD"
+def validate_mobile_number(mobile_number):
+    if not match(r'^\d{9}$', str(mobile_number)):
+        return "Mobile number must contain exactly 9 digits"
+    return None
 
-    if end_date is not None:
+
+def validate_date_format(date):
+    if date is not None:
         try:
-            datetime.strptime(end_date, '%Y-%m-%d')
+            datetime.strptime(date, '%Y-%m-%d')
+            return None
         except ValueError:
             return "Incorrect date format, should be YYYY-MM-DD"
 
+
+def validate_email(email):
+    if not match(r'^[^@]+@[^@]+\.[^@]+$', email):
+        return "Invalid email format"
+    return None
+
+
+def validate_date_time_format(time):
+    try:
+        datetime.strptime(time, '%Y-%m-%d %H:%M:%S')
+        return None
+    except ValueError:
+        return "Incorrect time format, should be YYYY-MM-DD HH:MM:SS"
+
+
+def validate_salary(salary):
+    if not str(salary).isdigit():
+        return "Salary must contain only digits"
+    return None
+
+
+def validate_id(check_id):
+    if not str(check_id).isdigit():
+        return "ID must contain only digits"
     return None
 
 
 ##########################################################
-# ADD COMMON USER DATA
+# GET COMMON USER DATA
 ##########################################################
-def add_common_user_data(common_data):
+def get_common_user_data(common_data):
+    # Obter nome de utilizador
     username = common_data.get('username', None)
-    password = common_data.get('password', None)
-    name = common_data.get('name', None)
-    mobile_number = common_data.get('mobile_number', None)
-    birth_date = common_data.get('birth_date', None)
-    address = common_data.get('address', None)
-    email = common_data.get('email', None)
-
-    validation_error = validate_user_data(username, email, password, name, mobile_number, birth_date, address)
+    validation_error = validate_username(username)
     if validation_error:
         return {"msg": validation_error}, 400
 
+    # Obter password
+    password = common_data.get('password', None)
+
+    # Obter nome
+    name = common_data.get('name', None)
+    validation_error = validate_name(name)
+    if validation_error:
+        return {"msg": validation_error}, 400
+
+    # Obter número de telemóvel
+    mobile_number = common_data.get('mobile_number', None)
+    validation_error = validate_mobile_number(mobile_number)
+    if validation_error:
+        return {"msg": validation_error}, 400
+
+    # Obter data de nascimento
+    birth_date = common_data.get('birth_date', None)
+    validation_error = validate_date_format(birth_date)
+    if validation_error:
+        return {"msg": validation_error}, 400
+
+    # Obter morada
+    address = common_data.get('address', None)
+
+    # Obter email
+    email = common_data.get('email', None)
+    validation_error = validate_email(email)
+    if validation_error:
+        return {"msg": validation_error}, 400
+
+    if not username or not password or not name or not mobile_number or not birth_date or not address or not email:
+        return "All fields are required", 400
+
+    # Conectar à base de dados
     db = db_connection()
     cur = db.cursor()
 
@@ -137,15 +170,60 @@ def add_common_user_data(common_data):
     if result is not None:
         return {"msg": "Email already exists"}, 400
 
+    add_common_data(username, password, name, mobile_number, birth_date, address, email)
+    return username, 200
+
+
+##########################################################
+# GET EMPLOYEE CONTRACT DATA
+##########################################################
+def get_employee_contract_data(username, contract_data):
+    # Obter salário
+    salary = contract_data.get('salary')
+    validation_error = validate_salary(salary)
+    if validation_error:
+        return {"msg": validation_error}, 400
+
+    # Obter data de início
+    start_date = contract_data.get('start_date')
+    validation_error = validate_date_format(start_date)
+    if validation_error:
+        return {"msg": validation_error}, 400
+
+    # Obter duração
+    duration = contract_data.get('duration')
+
+    # Obter data de fim
+    end_date = contract_data.get('end_date')
+    validation_error = validate_date_format(end_date)
+    if validation_error:
+        return {"msg": validation_error}, 400
+
+    if not salary or not start_date:
+        return {"msg": "Salary and start date are required"}, 400
+
+    add_employee_data(salary, start_date, duration, end_date, username)
+    return 200
+
+
+##########################################################
+# ADD COMMON USER DATA
+##########################################################
+def add_common_data(username, password, name, mobile_number, birth_date, address, email):
+    # Conectar à base de dados
+    db = db_connection()
+    cur = db.cursor()
+
+    # Encriptar a password
     hashed_password = generate_password_hash(password)
 
     try:
         cur.execute('''
-            INSERT INTO person (username, password, name, mobile_number, birth_date, address, email)
-            VALUES (%s, %s, %s, %s, %s, %s, %s)
-        ''', (username, hashed_password, name, mobile_number, birth_date, address, email))
+                INSERT INTO person (username, password, name, mobile_number, birth_date, address, email)
+                VALUES (%s, %s, %s, %s, %s, %s, %s)
+            ''', (username, hashed_password, name, mobile_number, birth_date, address, email))
         db.commit()
-        return {"msg": "User added successfully", "username": username}, 201
+        return {"msg": "User added successfully", "username": username}, 200
     except Exception as e:
         db.rollback()
         return {"msg": str(e)}, 500
@@ -157,41 +235,33 @@ def add_common_user_data(common_data):
 ##########################################################
 # ADD EMPLOYEE CONTRACT DATA
 ##########################################################
-def add_employee_contract_data(username, contract_data):
-    salary = contract_data.get('salary')
-    start_date = contract_data.get('start_date')
-    duration = contract_data.get('duration')
-    end_date = contract_data.get('end_date')
-
-    validation_result = validate_contract_data(salary, start_date, end_date)
-    if validation_result:
-        return False, validation_result
-
+def add_employee_data(salary, start_date, duration, end_date, username):
+    # Conectar à base de dados
     db = db_connection()
     cur = db.cursor()
+
     try:
         cur.execute('''
-            INSERT INTO employee_contract (contract_salary, contract_start_date, 
-            contract_duration, contract_end_date, person_username)
-            VALUES (%s, %s, %s, %s, %s)
-        ''', (salary, start_date, duration, end_date, username))
+                INSERT INTO employee_contract (contract_salary, contract_start_date, 
+                contract_duration, contract_end_date, person_username)
+                VALUES (%s, %s, %s, %s, %s)
+            ''', (salary, start_date, duration, end_date, username))
         db.commit()
-        return True, None
+        return {"msg": "Contract added successfully"}, 200
     except Exception as e:
         db.rollback()
-        return False, str(e)
+        return {"msg": str(e)}, 500
     finally:
         cur.close()
         db.close()
 
 
 ##########################################################
-# REMOVER COMMON DATA IF CONTRACT DATA HAS ERRORS
+# REMOVE COMMON DATA IF CONTRACT DATA HAS ERRORS
 ##########################################################
 def contract_check(username, contract_data):
-    success, error = add_employee_contract_data(username, contract_data)
-    if not success:
-        # Remover o 'user' da tabela 'person' se a inserção do contrato falhar
+    status = get_employee_contract_data(username, contract_data)
+    if status != 200:
         db = db_connection()
         cur = db.cursor()
         try:
@@ -203,8 +273,8 @@ def contract_check(username, contract_data):
         finally:
             cur.close()
             db.close()
-        return {"msg": error}, 500
-    return {"msg": "Contract added successfully"}, 201
+        return {"msg": status}, 500
+    return {"msg": "Contract added successfully"}, 200
 
 
 ##########################################################
@@ -217,11 +287,11 @@ def register_patient():
 
     # Adicionar os dados comuns do user
     data = request.get_json()
-    response, status = add_common_user_data(data)
-    if status != 201:
-        return jsonify(response), status
-    username = response["username"]
+    username, status = get_common_user_data(data)
+    if status != 200:
+        return jsonify(username), status
 
+    # Adicionar o paciente
     db = db_connection()
     cur = db.cursor()
     try:
@@ -230,7 +300,7 @@ def register_patient():
             VALUES (%s)
         ''', (username,))
         db.commit()
-        return jsonify({"msg": "Patient added successfully", "username": username}), 201
+        return jsonify({"msg": "Patient added successfully", "username": username}), 200
     except Exception as e:
         db.rollback()
         return jsonify({"msg": str(e)}), 500
@@ -249,17 +319,17 @@ def register_assistant():
 
     # Adicionar os dados comuns do user
     data = request.get_json()
-    response, status = add_common_user_data(data)
-    if status != 201:
-        return jsonify(response), status
-    username = response["username"]
+    username, status = get_common_user_data(data)
+    if status != 200:
+        return jsonify(username), status
 
     # Adicionar os dados do contrato do assistente
     contract_data = data.get('contract', {})
     response, status = contract_check(username, contract_data)
-    if status != 201:
+    if status != 200:
         return jsonify(response), status
 
+    # Adicionar o assistente
     db = db_connection()
     cur = db.cursor()
     try:
@@ -268,12 +338,10 @@ def register_assistant():
             VALUES (%s)
         ''', (username,))
         db.commit()
-        return jsonify({"msg": "Assistant added successfully", "username": username}), 201
-
+        return jsonify({"msg": "Assistant added successfully", "username": username}), 200
     except Exception as e:
         db.rollback()
         return jsonify({"msg": str(e)}), 500
-
     finally:
         cur.close()
         db.close()
@@ -287,25 +355,24 @@ def register_nurse():
     if not request.is_json:
         return jsonify({"msg": "Missing JSON in request"}), 400
 
-    data = request.get_json()
-
     # Adicionar os dados do enfermeiro
+    data = request.get_json()
     position = data.get('position', None)
     if not position:
         return jsonify({"msg": "Missing required field: position"}), 400
 
     # Adicionar os dados comuns do user
-    response, status = add_common_user_data(data)
-    if status != 201:
-        return jsonify(response), status
-    username = response["username"]
+    username, status = get_common_user_data(data)
+    if status != 200:
+        return jsonify(username), status
 
     # Adicionar os dados do contrato do enfermeiro
     contract_data = data.get('contract', {})
     response, status = contract_check(username, contract_data)
-    if status != 201:
+    if status != 200:
         return jsonify(response), status
 
+    # Adicionar o enfermeiro
     db = db_connection()
     cur = db.cursor()
     try:
@@ -314,7 +381,7 @@ def register_nurse():
             VALUES (%s, %s)
         ''', (position, username))
         db.commit()
-        return jsonify({"msg": "Nurse added successfully", "username": username}), 201
+        return jsonify({"msg": "Nurse added successfully", "username": username}), 200
     except Exception as e:
         db.rollback()
         return jsonify({"msg": str(e)}), 500
@@ -331,16 +398,13 @@ def register_doctor():
     if not request.is_json:
         return jsonify({"msg": "Missing JSON in request"}), 400
 
+    # Adicionar os dados do médico
     data = request.get_json()
-
     db = db_connection()
     cur = db.cursor()
-
-    # Adicionar os dados do médico
     doctor_license = data.get('license_info', None)
     if not doctor_license:
         return jsonify({"msg": "Missing required field: license_info"}), 400
-
     specializations = data.get('specializations_ids', [])
     if not specializations:
         return jsonify({"msg": "At least one specialization must be specified"}), 400
@@ -352,32 +416,30 @@ def register_doctor():
             return jsonify({"msg": f"Specialization ID {specialization_id} does not exist"}), 400
 
     # Adicionar os dados comuns do user
-    response, status = add_common_user_data(data)
-    if status != 201:
-        return jsonify(response), status
-    username = response["username"]
+    username, status = get_common_user_data(data)
+    if status != 200:
+        return jsonify(username), status
 
     # Adicionar os dados do contrato do médico
     contract_data = data.get('contract', {})
     response, status = contract_check(username, contract_data)
-    if status != 201:
+    if status != 200:
         return jsonify(response), status
 
+    # Adicionar o médico
     try:
         cur.execute('''
             INSERT INTO doctors (doctor_license, employee_contract_person_username)
             VALUES (%s, %s)
         ''', (doctor_license, username))
-
         for specialization_id in specializations:
             cur.execute('''
                 INSERT INTO specializations_doctors (specializations_specialization_id,
                 doctors_employee_contract_person_username)
                 VALUES (%s, %s)
             ''', (specialization_id, username))
-
         db.commit()
-        return jsonify({"msg": "Doctor added successfully", "username": username}), 201
+        return jsonify({"msg": "Doctor added successfully", "username": username}), 200
     except Exception as e:
         db.rollback()
         return jsonify({"msg": str(e)}), 500
@@ -389,45 +451,37 @@ def register_doctor():
 ##########################################################
 # LOGIN
 ##########################################################
-@app.route('/dbproj/login', methods=['POST'])
+@app.route('/dbproj/user', methods=['PUT'])
 def login():
     if not request.is_json:
         return jsonify({"msg": "Missing JSON in request"}), 400
 
+    # Obter username e password
     username = request.json.get('username', None)
     password = request.json.get('password', None)
 
     if not username or not password:
         return jsonify({"msg": "Missing username or password"}), 400
 
-    # Conectar ao banco de dados e buscar o usuário
+    # Conectar à base de dados e procurar o utilizador
     db = db_connection()
     cur = db.cursor()
     try:
         cur.execute('SELECT password FROM person WHERE username = %s', (username,))
         user = cur.fetchone()
         if user is None:
-            return jsonify({"msg": "Username not found"}), 404
+            return jsonify({"msg": "Username not found"}), 400
         stored_password = user[0]
 
+        # Verificar a password encriptada
         if check_password_hash(stored_password, password):
             access_token = create_access_token(identity=username)
             return jsonify(access_token=access_token), 200
         else:
-            return jsonify({"msg": "Bad username or password"}), 401
+            return jsonify({"msg": "Bad username or password"}), 400
     finally:
         cur.close()
         db.close()
-
-
-##########################################################
-# EXEMPLO DE ENDPOINT PROTEGIDO
-##########################################################
-@app.route('/dbproj/protected', methods=['GET'])
-@jwt_required()
-def protected():
-    current_user = get_jwt_identity()
-    return jsonify(logged_in_as=current_user), 200
 
 
 ##########################################################
@@ -437,24 +491,54 @@ def protected():
 @jwt_required()
 def schedule_appointment():
     if not request.is_json:
-        return jsonify({"status": 400, "errors": "Missing JSON in request"}), 400
+        return jsonify({"msg": "Missing JSON in request"}), 400
 
-    patient_id = get_jwt_identity()
-    doctor_id = request.json.get('doctor_id')
-    date = request.json.get('date')
-
-    # You would add validation here for the doctor_id, date format etc.
-
+    # Conectar à base de dados
     db = db_connection()
     cur = db.cursor()
+
+    # Obter o nome do paciente que está a fazer o pedido
+    patient_user = get_jwt_identity()
+
+    # Obter o 'id' do médico para o qual o paciente quer marcar a consulta
+    doctor_user = request.json.get('doctor_id')
+    cur.execute("SELECT 1 FROM doctors WHERE LOWER(employee_contract_person_username) = LOWER(%s)", (doctor_user,))
+    doctor = cur.fetchone()
+    if doctor is None:
+        return jsonify({"msg": "Doctor not found"}), 400
+
+    # Obter a data e hora da consulta
+    date = request.json.get('date')
+    validation_error = validate_date_time_format(date)
+    if validation_error:
+        return jsonify({"msg": validation_error}), 400
+
+    if not doctor_user or not date:
+        return jsonify({"msg": "All fields are required"}), 400
+
+    # Verificar se o médico está disponível na data e hora pretendida
+    cur.execute("""
+        SELECT 1 
+        FROM appointments
+        WHERE LOWER(doctors_employee_contract_person_username) = LOWER(%s) 
+        AND appointment_date = %s
+    """, (doctor_user, date))
+    appointment_exists = cur.fetchone()
+    if appointment_exists is not None:
+        return jsonify({"msg": "Doctor is not available at the given date and time"}), 400
+
+    # Marcar a consulta
     try:
-        # Schedule the appointment
-        cur.execute('''INSERT INTO appointments (patient_person_username, doctors_employee_contract_person_username, 
-        appointment_date)
-                       VALUES (%s, %s, %s) RETURNING appointment_id''', (patient_id, doctor_id, date))
+        cur.execute("""
+                    INSERT INTO appointments (
+                        appointment_date, 
+                        patient_person_username, 
+                        doctors_employee_contract_person_username
+                    ) VALUES (%s, %s, %s) RETURNING appointment_id
+                """, (date, patient_user, doctor_user))
         appointment_id = cur.fetchone()[0]
         db.commit()
-        return jsonify({"status": 201, "results": appointment_id}), 201
+        return jsonify({"status": 200, "results": appointment_id}), 200
     except Exception as e:
         db.rollback()
         return jsonify({"status": 500, "errors": str(e)}), 500
