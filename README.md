@@ -21,7 +21,7 @@ O Hospital Management System (HMS) é um projeto que visa representar, de forma 
 - **Assistants**
 - **...**
   
-Cada entidade foi modelada com seus atributos principais e relacionamentos apropriados (chaves estrangeiras, relacionamentos N:N, etc.).
+Cada entidade foi modelada com seus atributos principais e relacionamentos apropriados (chaves estrangeiras, relacionamentos N:N, etc).
 
 ## 📊 Diagrama Relacional
 
