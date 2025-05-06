@@ -36,6 +36,16 @@ O diagrama da base de dados pode ser visualizado através do arquivo `Conceptual
 5. Lance o Postman e execute o script `HMS Collection.postman_collection.json`.
 6. Comece a testar o sistema!
 
+## 📸 Capturas de Ecrã
+
+![image](https://github.com/user-attachments/assets/b2be2f31-c2fe-4f08-aae5-eb4d61082a05)
+![image](https://github.com/user-attachments/assets/5235f467-69f2-4356-852f-2408b1222a9a)
+![image](https://github.com/user-attachments/assets/d84b12dc-60b8-42c4-918f-5d59bd258959)
+![image](https://github.com/user-attachments/assets/fb89d58e-6587-4870-ae19-cbb52dbd99ee)
+![image](https://github.com/user-attachments/assets/dc0109b3-a508-4b70-8f8f-8cdf7a15d490)
+![image](https://github.com/user-attachments/assets/943bb3da-66f3-4357-8842-07753b086532)
+![image](https://github.com/user-attachments/assets/00a46398-b6d5-4b88-b319-263c33079fb8)
+
 ## 👩‍💻 Autores
 
 - [Carolina Reis](https://github.com/luanacarolinareis)
