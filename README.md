@@ -39,7 +39,7 @@ O diagrama da base de dados pode ser visualizado através do arquivo `Conceptual
 ## 📸 Capturas de Ecrã
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/b2be2f31-c2fe-4f08-aae5-eb4d61082a05" width="600"/>
+  <img src="https://github.com/user-attachments/assets/b2be2f31-c2fe-4f08-aae5-eb4d61082a05" width="1000"/>
   <img src="https://github.com/user-attachments/assets/5235f467-69f2-4356-852f-2408b1222a9a" width="600"/>
   <img src="https://github.com/user-attachments/assets/d84b12dc-60b8-42c4-918f-5d59bd258959" width="600"/>
   <img src="https://github.com/user-attachments/assets/fb89d58e-6587-4870-ae19-cbb52dbd99ee" width="600"/>
