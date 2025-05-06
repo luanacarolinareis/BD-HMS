@@ -25,7 +25,7 @@ Cada entidade foi modelada com seus atributos principais e relacionamentos aprop
 
 ## 📊 Diagrama Relacional
 
-O diagrama do banco de dados pode ser visualizado através do arquivo `Conceptual Diagram.json`, recorrendo ao [ONDA](https://onda.dei.uc.pt/v4/), representando as tabelas e os seus relacionamentos.
+O diagrama da base de dados pode ser visualizado através do arquivo `Conceptual Diagram.json`, recorrendo ao [ONDA](https://onda.dei.uc.pt/v4/), representando as tabelas e os seus relacionamentos.
 
 ## 🚀 Como Executar
 
