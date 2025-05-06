@@ -15,13 +15,12 @@ O Hospital Management System (HMS) é um projeto que visa representar, de forma 
 
 ## 🧱 Entidades do Sistema
 
-- **Paciente**
-- **Médico**
-- **Enfermeiro**
-- **Departamento**
-- **Internação**
-- **Exame**
-
+- **Patient**
+- **Doctors**
+- **Nurses**
+- **Assistants**
+- **...**
+  
 Cada entidade foi modelada com seus atributos principais e relacionamentos apropriados (chaves estrangeiras, relacionamentos N:N, etc.).
 
 ## 📊 Diagrama Relacional
