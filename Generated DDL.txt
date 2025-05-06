@@ -1,0 +1,275 @@
+CREATE TABLE employee_contract (
+	employee_id		 BIGSERIAL NOT NULL,
+	contract_contract_id BIGSERIAL NOT NULL,
+	contract_salary	 INTEGER NOT NULL,
+	contract_start_date	 DATE NOT NULL,
+	contract_duration	 VARCHAR(512),
+	contract_end_date	 DATE,
+	person_username	 VARCHAR(512) NOT NULL,
+	PRIMARY KEY(person_username)
+);
+
+CREATE TABLE doctors (
+	doctor_license			 VARCHAR(512) NOT NULL,
+	employee_contract_person_username VARCHAR(512) NOT NULL,
+	PRIMARY KEY(employee_contract_person_username)
+);
+
+CREATE TABLE nurses (
+	position				 VARCHAR(512) NOT NULL,
+	employee_contract_person_username VARCHAR(512) NOT NULL,
+	PRIMARY KEY(employee_contract_person_username)
+);
+
+CREATE TABLE assistants (
+	employee_contract_person_username VARCHAR(512) NOT NULL,
+	PRIMARY KEY(employee_contract_person_username)
+);
+
+CREATE TABLE hospitalizations (
+	hospitalization_id				 BIGSERIAL NOT NULL,
+	begin_date					 TIMESTAMP NOT NULL,
+	end_date					 TIMESTAMP,
+	patient_person_username			 VARCHAR(512) NOT NULL,
+	assistants_employee_contract_person_username VARCHAR(512) NOT NULL,
+	nurses_employee_contract_person_username	 VARCHAR(512) NOT NULL,
+	PRIMARY KEY(hospitalization_id)
+);
+
+CREATE TABLE surgeries (
+	surgery_id				 BIGSERIAL NOT NULL,
+	surgery_date				 TIMESTAMP NOT NULL,
+	hospitalizations_hospitalization_id	 BIGINT NOT NULL,
+	doctors_employee_contract_person_username VARCHAR(512) NOT NULL,
+	PRIMARY KEY(surgery_id)
+);
+
+CREATE TABLE appointments (
+	appointment_id				 BIGSERIAL NOT NULL,
+	appointment_date				 TIMESTAMP NOT NULL,
+	patient_person_username			 VARCHAR(512) NOT NULL,
+	doctors_employee_contract_person_username VARCHAR(512) NOT NULL,
+	PRIMARY KEY(appointment_id)
+);
+
+CREATE TABLE prescriptions (
+	prescription_id	 BIGSERIAL NOT NULL,
+	prescription_date DATE NOT NULL,
+	PRIMARY KEY(prescription_id)
+);
+
+CREATE TABLE side_effects (
+	side_effect TEXT NOT NULL,
+	PRIMARY KEY(side_effect)
+);
+
+CREATE TABLE medicines (
+	medicine_name VARCHAR(512) NOT NULL,
+	PRIMARY KEY(medicine_name)
+);
+
+CREATE TABLE payments (
+	payment_id	 BIGSERIAL NOT NULL,
+	payment_amount INTEGER NOT NULL,
+	deadline_date	 TIMESTAMP NOT NULL,
+	PRIMARY KEY(payment_id)
+);
+
+CREATE TABLE bills (
+	bill_id	 BIGSERIAL NOT NULL,
+	total_price	 BIGINT NOT NULL,
+	deadline_date	 TIMESTAMP NOT NULL,
+	payment_method VARCHAR(512)
+);
+
+CREATE TABLE specializations (
+	specialization_id SERIAL NOT NULL,
+	specialization	 VARCHAR(512) NOT NULL,
+	PRIMARY KEY(specialization_id)
+);
+
+CREATE TABLE patient (
+	patient_id	 BIGSERIAL NOT NULL,
+	person_username VARCHAR(512) NOT NULL,
+	PRIMARY KEY(person_username)
+);
+
+CREATE TABLE posology (
+	dosage			 INTEGER NOT NULL,
+	frequency			 INTEGER NOT NULL,
+	prescriptions_prescription_id BIGINT,
+	medicines_medicine_name	 VARCHAR(512) NOT NULL,
+	PRIMARY KEY(dosage,prescriptions_prescription_id)
+);
+
+CREATE TABLE severity (
+	intensity		 BIGINT,
+	medicines_medicine_name	 VARCHAR(512) NOT NULL,
+	side_effects_side_effect TEXT,
+	PRIMARY KEY(side_effects_side_effect)
+);
+
+CREATE TABLE person (
+	username	 VARCHAR(512) NOT NULL,
+	password	 VARCHAR(512) NOT NULL,
+	name		 VARCHAR(512) NOT NULL,
+	mobile_number BIGINT NOT NULL,
+	birth_date	 DATE NOT NULL,
+	address	 VARCHAR(512) NOT NULL,
+	email	 VARCHAR(512) NOT NULL,
+	PRIMARY KEY(username)
+);
+
+CREATE TABLE hospitalizations_bills (
+	hospitalizations_hospitalization_id BIGINT,
+	PRIMARY KEY(hospitalizations_hospitalization_id)
+);
+
+CREATE TABLE specializations_specializations (
+	specializations_specialization_id	 INTEGER,
+	specializations_specialization_id1 INTEGER NOT NULL,
+	PRIMARY KEY(specializations_specialization_id)
+);
+
+CREATE TABLE specializations_doctors (
+	specializations_specialization_id	 INTEGER,
+	doctors_employee_contract_person_username VARCHAR(512),
+	PRIMARY KEY(specializations_specialization_id,doctors_employee_contract_person_username)
+);
+
+CREATE TABLE appointments_bills (
+	appointments_appointment_id BIGINT,
+	PRIMARY KEY(appointments_appointment_id)
+);
+
+CREATE TABLE hospitalizations_prescriptions (
+	hospitalizations_hospitalization_id BIGINT NOT NULL,
+	prescriptions_prescription_id	 BIGINT,
+	PRIMARY KEY(prescriptions_prescription_id)
+);
+
+CREATE TABLE appointments_prescriptions (
+	appointments_appointment_id	 BIGINT NOT NULL,
+	prescriptions_prescription_id BIGINT,
+	PRIMARY KEY(prescriptions_prescription_id)
+);
+
+CREATE TABLE nurses_surgeries (
+	nurses_employee_contract_person_username VARCHAR(512),
+	surgeries_surgery_id			 BIGINT,
+	PRIMARY KEY(nurses_employee_contract_person_username,surgeries_surgery_id)
+);
+
+CREATE TABLE appointments_nurses (
+	appointments_appointment_id		 BIGINT,
+	nurses_employee_contract_person_username VARCHAR(512),
+	PRIMARY KEY(appointments_appointment_id,nurses_employee_contract_person_username)
+);
+
+ALTER TABLE employee_contract ADD UNIQUE (employee_id, contract_contract_id);
+ALTER TABLE employee_contract ADD CONSTRAINT employee_contract_fk1 FOREIGN KEY (person_username) REFERENCES person(username);
+ALTER TABLE doctors ADD CONSTRAINT doctors_fk1 FOREIGN KEY (employee_contract_person_username) REFERENCES employee_contract(person_username);
+ALTER TABLE nurses ADD CONSTRAINT nurses_fk1 FOREIGN KEY (employee_contract_person_username) REFERENCES employee_contract(person_username);
+ALTER TABLE assistants ADD CONSTRAINT assistants_fk1 FOREIGN KEY (employee_contract_person_username) REFERENCES employee_contract(person_username);
+ALTER TABLE hospitalizations ADD CONSTRAINT hospitalizations_fk1 FOREIGN KEY (patient_person_username) REFERENCES patient(person_username);
+ALTER TABLE hospitalizations ADD CONSTRAINT hospitalizations_fk2 FOREIGN KEY (assistants_employee_contract_person_username) REFERENCES assistants(employee_contract_person_username);
+ALTER TABLE hospitalizations ADD CONSTRAINT hospitalizations_fk3 FOREIGN KEY (nurses_employee_contract_person_username) REFERENCES nurses(employee_contract_person_username);
+ALTER TABLE surgeries ADD CONSTRAINT surgeries_fk1 FOREIGN KEY (hospitalizations_hospitalization_id) REFERENCES hospitalizations(hospitalization_id);
+ALTER TABLE surgeries ADD CONSTRAINT surgeries_fk2 FOREIGN KEY (doctors_employee_contract_person_username) REFERENCES doctors(employee_contract_person_username);
+ALTER TABLE appointments ADD CONSTRAINT appointments_fk1 FOREIGN KEY (patient_person_username) REFERENCES patient(person_username);
+ALTER TABLE appointments ADD CONSTRAINT appointments_fk2 FOREIGN KEY (doctors_employee_contract_person_username) REFERENCES doctors(employee_contract_person_username);
+ALTER TABLE bills ADD UNIQUE (bill_id);
+ALTER TABLE specializations ADD UNIQUE (specialization);
+ALTER TABLE patient ADD UNIQUE (patient_id);
+ALTER TABLE patient ADD CONSTRAINT patient_fk1 FOREIGN KEY (person_username) REFERENCES person(username);
+ALTER TABLE posology ADD CONSTRAINT posology_fk1 FOREIGN KEY (prescriptions_prescription_id) REFERENCES prescriptions(prescription_id);
+ALTER TABLE posology ADD CONSTRAINT posology_fk2 FOREIGN KEY (medicines_medicine_name) REFERENCES medicines(medicine_name);
+ALTER TABLE severity ADD CONSTRAINT severity_fk1 FOREIGN KEY (medicines_medicine_name) REFERENCES medicines(medicine_name);
+ALTER TABLE severity ADD CONSTRAINT severity_fk2 FOREIGN KEY (side_effects_side_effect) REFERENCES side_effects(side_effect);
+ALTER TABLE person ADD UNIQUE (mobile_number, email);
+ALTER TABLE hospitalizations_bills ADD CONSTRAINT hospitalizations_bills_fk1 FOREIGN KEY (hospitalizations_hospitalization_id) REFERENCES hospitalizations(hospitalization_id);
+ALTER TABLE specializations_specializations ADD CONSTRAINT specializations_specializations_fk1 FOREIGN KEY (specializations_specialization_id) REFERENCES specializations(specialization_id);
+ALTER TABLE specializations_specializations ADD CONSTRAINT specializations_specializations_fk2 FOREIGN KEY (specializations_specialization_id1) REFERENCES specializations(specialization_id);
+ALTER TABLE specializations_doctors ADD CONSTRAINT specializations_doctors_fk1 FOREIGN KEY (specializations_specialization_id) REFERENCES specializations(specialization_id);
+ALTER TABLE specializations_doctors ADD CONSTRAINT specializations_doctors_fk2 FOREIGN KEY (doctors_employee_contract_person_username) REFERENCES doctors(employee_contract_person_username);
+ALTER TABLE appointments_bills ADD CONSTRAINT appointments_bills_fk1 FOREIGN KEY (appointments_appointment_id) REFERENCES appointments(appointment_id);
+ALTER TABLE hospitalizations_prescriptions ADD CONSTRAINT hospitalizations_prescriptions_fk1 FOREIGN KEY (hospitalizations_hospitalization_id) REFERENCES hospitalizations(hospitalization_id);
+ALTER TABLE hospitalizations_prescriptions ADD CONSTRAINT hospitalizations_prescriptions_fk2 FOREIGN KEY (prescriptions_prescription_id) REFERENCES prescriptions(prescription_id);
+ALTER TABLE appointments_prescriptions ADD CONSTRAINT appointments_prescriptions_fk1 FOREIGN KEY (appointments_appointment_id) REFERENCES appointments(appointment_id);
+ALTER TABLE appointments_prescriptions ADD CONSTRAINT appointments_prescriptions_fk2 FOREIGN KEY (prescriptions_prescription_id) REFERENCES prescriptions(prescription_id);
+ALTER TABLE nurses_surgeries ADD CONSTRAINT nurses_surgeries_fk1 FOREIGN KEY (nurses_employee_contract_person_username) REFERENCES nurses(employee_contract_person_username);
+ALTER TABLE nurses_surgeries ADD CONSTRAINT nurses_surgeries_fk2 FOREIGN KEY (surgeries_surgery_id) REFERENCES surgeries(surgery_id);
+ALTER TABLE appointments_nurses ADD CONSTRAINT appointments_nurses_fk1 FOREIGN KEY (appointments_appointment_id) REFERENCES appointments(appointment_id);
+ALTER TABLE appointments_nurses ADD CONSTRAINT appointments_nurses_fk2 FOREIGN KEY (nurses_employee_contract_person_username) REFERENCES nurses(employee_contract_person_username);
+
+
+-- Exemplos de especializações
+INSERT INTO specializations
+VALUES (1, 'Cardiologist');
+INSERT INTO specializations
+VALUES (2, 'Dermatologist');
+INSERT INTO specializations
+VALUES (3, 'Endocrinologist');
+
+-- Exemplos de medicamentos
+INSERT INTO medicines
+VALUES ('Paracetamol');
+INSERT INTO medicines
+VALUES ('Ibuprofen');
+
+-- Trigger para quando se marca uma consulta
+CREATE OR REPLACE FUNCTION create_appointment_bill()
+RETURNS TRIGGER AS $$
+DECLARE
+    deadline_date TIMESTAMP;
+BEGIN
+    -- Calcula a data de vencimento como a data da consulta mais três meses
+    deadline_date := NEW.appointment_date + INTERVAL '3 months';
+
+    -- Insere uma nova entrada na tabela de contas (bills)
+    INSERT INTO bills (total_price, deadline_date, payment_method)
+    VALUES (100.00, deadline_date, NULL);
+
+    -- Insere uma nova entrada na tabela de associação entre consultas e contas (appointments_bills)
+    INSERT INTO appointments_bills (appointments_appointment_id)
+    VALUES (NEW.appointment_id);
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER appointment_created_trigger
+AFTER INSERT ON appointments
+FOR EACH ROW
+EXECUTE FUNCTION create_appointment_bill();
+
+-- Trigger para quando uma cirurgia é agendada
+CREATE OR REPLACE FUNCTION create_surgery_bill()
+RETURNS TRIGGER AS $$
+DECLARE
+    surgery_deadline_date TIMESTAMP;
+    surg_id BIGINT;
+BEGIN
+    -- Calcula a data de vencimento como a data da cirurgia mais três meses
+    surgery_deadline_date := NEW.surgery_date + INTERVAL '3 months';
+
+    -- Verifica se há uma hospitalização associada
+    IF NEW.hospitalizations_hospitalization_id IS NOT NULL THEN
+        -- Atualiza a conta da hospitalização existente
+        UPDATE bills
+        SET total_price = total_price + 500.00, deadline_date = surgery_deadline_date
+        WHERE bill_id = (SELECT bill_id FROM hospitalizations_bills WHERE hospitalizations_hospitalization_id = NEW.hospitalizations_hospitalization_id);
+
+    ELSE
+        -- Insere uma nova entrada na tabela de contas (bills)
+        INSERT INTO bills (total_price, deadline_date, payment_method)
+        VALUES (500.00, surgery_deadline_date, NULL)
+        RETURNING bill_id INTO surg_id;
+
+        -- Insere uma nova entrada na tabela de associação entre hospitalizações e contas (hospitalizations_bills)
+        INSERT INTO hospitalizations_bills (hospitalizations_hospitalization_id)
+        VALUES (NEW.hospitalizations_hospitalization_id);
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;

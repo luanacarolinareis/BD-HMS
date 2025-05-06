@@ -1892,3 +1892,43 @@ INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:42:32] "[35m[1mGET /dbproj/report 
 INFO:werkzeug:127.0.0.1 - - [28/May/2024 23:42:34] "[35m[1mGET /dbproj/report HTTP/1.1[0m" 500 -
 INFO:logger:API v1.0 online: https://127.0.0.1:8080
 INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 117-656-548
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 10:57:16] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 10:57:18] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:30:22] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:30:31] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:30:34] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:31:10] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:31:18] "POST /dbproj/register/doctor HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:31:31] "POST /dbproj/appointment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:31:43] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:34:55] "[31m[1mPOST /dbproj/register/patient HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:35:10] "POST /dbproj/register/patient HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:35:29] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:37:21] "[31m[1mPOST /dbproj/appointment HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:37:29] "POST /dbproj/appointment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:38:06] "[31m[1mPOST /dbproj/bills/2 HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:38:20] "POST /dbproj/bills/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:41:50] "GET /dbproj/appointments/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:43:11] "POST /dbproj/register/nurse HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:43:35] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:43:51] "[31m[1mPOST /dbproj/surgery HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:44:13] "[31m[1mPUT /dbproj/user HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:44:17] "POST /dbproj/register/assistant HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:44:20] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:44:35] "POST /dbproj/surgery HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:45:29] "[31m[1mPOST /dbproj/surgery/1 HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:45:36] "POST /dbproj/surgery/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:46:29] "PUT /dbproj/user HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:46:48] "POST /dbproj/prescription/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:47:39] "[35m[1mGET /dbproj/report HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:48:17] "GET /dbproj/top3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:49:39] "[35m[1mGET /dbproj/daily/2027-03-08 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [05/Jun/2024 11:50:11] "[35m[1mGET /dbproj/daily/2026-08-06 HTTP/1.1[0m" 500 -
+INFO:logger:API v1.0 online: https://127.0.0.1:8080
+INFO:logger:API v1.0 online: https://127.0.0.1:8080

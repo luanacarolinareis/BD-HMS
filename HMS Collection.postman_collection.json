@@ -1,0 +1,597 @@
+{
+	"info": {
+		"_postman_id": "e9ae08d4-8857-467c-9f71-c51343c16ac2",
+		"name": "HMS Collection",
+		"description": "Postman collection with all the requests required to test the application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33610975"
+	},
+	"item": [
+		{
+			"name": "Landing Page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/dbproj",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Patient",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"pat2\",\r\n    \"password\": \"a2112Z\",\r\n    \"name\": \"Diogo Silvestre\",\r\n    \"mobile_number\": \"911733277\",\r\n    \"birth_date\": \"1999-02-01\",\r\n    \"address\": \"R Fontainhas 47, Zambujeira Do Mar - 7630-776\",\r\n    \"email\": \"dsigo@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/register/patient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"register",
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Assistant",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"ab12\",\r\n    \"password\": \"securePass123!\",\r\n    \"name\": \"Ana Sousa\",\r\n    \"mobile_number\": \"933558211\",\r\n    \"birth_date\": \"1985-04-23\",\r\n    \"address\": \"1234 Rua dos Limoeiros, Porto, 4000-123\",\r\n    \"email\": \"ana.sousa5@example.com\",\r\n    \"contract\": {\r\n        \"salary\": 3455,\r\n        \"start_date\": \"2024-01-01\",\r\n        \"duration\": \"2 years\",\r\n        \"end_date\": \"2025-12-31\"\r\n   }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/register/assistant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"register",
+						"assistant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Nurse",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"joaquim08\",\r\n    \"password\": \"77xaP0\",\r\n    \"name\": \"Joaquim Fonseca\",\r\n    \"mobile_number\": \"963766450\",\r\n    \"birth_date\": \"1970-02-15\",\r\n    \"address\": \"R do Brasil 156, Coimbra - 3030-175\",\r\n    \"email\": \"joaquim.fonseca8@gmail.com\",\r\n    \"position\": \"Emergency Nurse\",\r\n    \"contract\": {\r\n        \"salary\": 2000,\r\n        \"start_date\": \"2011-11-02\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/register/nurse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"register",
+						"nurse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Doctor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"manel12\",\r\n  \"password\": \"aaaxzp\",\r\n  \"name\": \"Manuel Santana\",\r\n  \"mobile_number\": \"912355743\",\r\n  \"birth_date\": \"1980-03-10\",\r\n  \"address\": \"Travessa Pendoa 45, Sintra - 2710-557\",\r\n  \"email\": \"mane@gmail.com\",\r\n  \"license_info\": \"License granted on 07-03-2020.\",\r\n  \"specializations_ids\": [1, 2],\r\n  \"contract\": {\r\n    \"salary\": 5000,\r\n    \"start_date\": \"2011-12-13\",\r\n    \"duration\": \"Temporary\",\r\n    \"end_date\": \"2012-03-13\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/register/doctor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"register",
+						"doctor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patient Authentication",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"pat2\",\r\n  \"password\": \"a2112Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assistant Authentication",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"ab12\",\r\n  \"password\": \"securePass123!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nurse Authentication",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"joaquim08\",\r\n  \"password\": \"77xaP0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Doctor Authentication",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"manel12\",\r\n  \"password\": \"aaaxzp\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schedule Appointment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjkzNDgzOSwianRpIjoiN2U3YTY2ZjQtNGVjMi00OTUyLWFhYjktZDljYmRhODRkMTE2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InBhdDIiLCJuYmYiOjE3MTY5MzQ4MzksImNzcmYiOiJlMjUzYzQyNy0wZWQ3LTQzMGYtODM0NC01MWI5ZTA1YTY3YmMiLCJleHAiOjE3MTY5MzU3Mzl9.It7IzNzKHzpp8UfadFkhX9eq6N5RVGb4NTR-VHnvqqo"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"doctor_id\": \"manel12\",\r\n    \"date\": \"2025-08-06 17:07:00\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/appointment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"appointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "See Appointments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjkyNjg3MiwianRpIjoiOWJjNDE4YmYtODdmMi00MzVjLThhYmEtY2I2OGU0OTAxNzhlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFiMTIiLCJuYmYiOjE3MTY5MjY4NzIsImNzcmYiOiJhZGMyMTM3Yy01NGUyLTRiMzQtOTkzNy1iNzk4M2I3YTE2MGUiLCJleHAiOjE3MTY5Mjc3NzJ9.JjoRih1P3G5f3_nxel6JvgqMcVO8t_DrnvBGn8p0v6Q"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/dbproj/appointments/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"appointments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schedule Surgery",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjkyNzA4MywianRpIjoiNjM2YTUxNjMtZjA5Yi00MmIzLTg3YzQtNTBiZWQxNmYxMWIzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFiMTIiLCJuYmYiOjE3MTY5MjcwODMsImNzcmYiOiIwZTk2ZGRmYi0xYzE1LTRhOTAtOGY4Ni0wOTQ2NDFlMzdmMDUiLCJleHAiOjE3MTY5Mjc5ODN9.K7ilrUVbLLblOEPDT_mXCF0o9bJ1blDM51T8VBVx3Hk"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"patient_id\": \"xx\",\r\n    \"doctor\": \"manel12\",\r\n    \"nurses\": [[\"joaquim08\", \"Intern\"]],\r\n    \"date\": \"2024-03-08 17:30:00\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/surgery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"surgery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schedule Surgery (with Hospitalization)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjkyMzA2OSwianRpIjoiYjc5NTgyNjktOGM0Yy00OWY0LThiYTctOWQ4ZTVlYmRjNmM4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFiMTIiLCJuYmYiOjE3MTY5MjMwNjksImNzcmYiOiI2NWY1YjdkYS03MmNkLTQxMjgtYjIyMC01MDc3MmY1Yjk2ODIiLCJleHAiOjE3MTY5MjM5Njl9.GlCrbAVveSRtYvrL8uph08y0p5UlKZjK8j2me5u1wMw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"patient_id\": \"xx\",\r\n    \"doctor\": \"manel12\",\r\n    \"nurses\": [[\"joaquim08\", \"Intern\"]],\r\n    \"date\": \"2030-03-08 17:30:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/surgery/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"surgery",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prescriptions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjkzMjU3NSwianRpIjoiZTZlYjU4MjItODIzYS00NjhlLWJhODctZjY1MTg5YTBkYmU0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6Im1hbmVsMTIiLCJuYmYiOjE3MTY5MzI1NzUsImNzcmYiOiI5ODlhYWEyYy0wZDQ0LTQzNTItOTlhZS0xMzRiZjliZmYwZGQiLCJleHAiOjE3MTY5MzM0NzV9.WfTjFiSdzLbhsqkga9zK35hz_qMWDVjw0P5_fdlkviM"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/prescriptions/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"prescriptions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Prescriptions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjkzMTYzNywianRpIjoiMGRmMTA2MTUtOTk3Ni00MGQ2LWIwOGQtZDY3Y2NmYWQzMTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6Im1hbmVsMTIiLCJuYmYiOjE3MTY5MzE2MzcsImNzcmYiOiIyZDUzNWI0ZS00MWQzLTQ4ZjEtYjMwNi01NTEwZDRjNDdlZmQiLCJleHAiOjE3MTY5MzI1Mzd9.Jeck7QtYrjwxmhLBfcbGRpOsVM-NB82j1IIwMvtLKyA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"hospitalization\",\r\n    \"event_id\": 1,\r\n    \"validity\": \"2025-10-15\",\r\n    \"medicines\": [ \r\n        {\"medicine\": \"Paracetamol\", \"posology_dose\": 1000, \"posology_frequency\": 2}, \r\n        {\"medicine\": \"Ibuprofen\", \"posology_dose\": 400, \"posology_frequency\": 1} \r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/prescription/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"prescription",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute Payment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjkzNDgzOSwianRpIjoiN2U3YTY2ZjQtNGVjMi00OTUyLWFhYjktZDljYmRhODRkMTE2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InBhdDIiLCJuYmYiOjE3MTY5MzQ4MzksImNzcmYiOiJlMjUzYzQyNy0wZWQ3LTQzMGYtODM0NC01MWI5ZTA1YTY3YmMiLCJleHAiOjE3MTY5MzU3Mzl9.It7IzNzKHzpp8UfadFkhX9eq6N5RVGb4NTR-VHnvqqo"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 10,\r\n    \"payment_method\": \"Money\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dbproj/bills/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"bills",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Top 3 Patients",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjkzNTQwNiwianRpIjoiN2UyMzZkZmEtNzBiMy00ODJlLTk0NjItZTAxMmZkY2QyZWMxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFiMTIiLCJuYmYiOjE3MTY5MzU0MDYsImNzcmYiOiIxMzAwN2QxNS03NjgzLTQ0ZmMtYTRmYi0zODdiNTk1ZGMxYmUiLCJleHAiOjE3MTY5MzYzMDZ9.hoqmsjMAjRA6nfaRY5EM4nbQv5BCqv4aR13r0qnUTV8"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/dbproj/top3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"top3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Daily Summary",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjkzNTYyMywianRpIjoiYjU2NzU1ZTktMmQxNC00N2I0LWFhMTktNTI2YTVlODQ5NTMzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFiMTIiLCJuYmYiOjE3MTY5MzU2MjMsImNzcmYiOiI0YzZiZTgxOS04NThiLTQyYWYtYTZmNC0zMGU3MGUyZTgzMWUiLCJleHAiOjE3MTY5MzY1MjN9.gpor91q5PAu5sEh6zlPWwYLMaDT545qDhzJ0Z746oEw"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/dbproj/daily/2027-03-08",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"daily",
+						"2027-03-08"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Monthly Report",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjkzMzE0OCwianRpIjoiODc0ZWZhOTQtNzgwOC00N2FmLWEwMmItNGUzZTk5NTYwYzBmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImFiMTIiLCJuYmYiOjE3MTY5MzMxNDgsImNzcmYiOiJlNzEzZjAyNy04Mjg5LTRhNTAtOGFlNy0yZTUzMmVmOGI0MzYiLCJleHAiOjE3MTY5MzQwNDh9.IlQJkplNlLss17GdMnwUxzPljLQ2hcgWWylRDwoulKI"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/dbproj/report",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dbproj",
+						"report"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
