@@ -1,6 +1,6 @@
 # 🏥 Hospital Management System (HMS)
 
-Este projeto consiste na modelagem e implementação de um sistema de gestão hospitalar utilizando o banco de dados PostgreSQL. Inclui a criação do esquema relacional, inserção de dados e execução de queries úteis para a administração e operação de um hospital.
+Este projeto consiste na modelação e implementação de um sistema de gestão hospitalar utilizando o banco de dados PostgreSQL. Inclui a criação do esquema relacional, inserção de dados e execução de queries úteis para a administração e operação de um hospital.
 
 ## 📚 Descrição
 
