@@ -1,10 +1,10 @@
-# 🏥 Hospital Management System (HMS)
+# 🏥 MedSync - Hospital Management System
 
 Este projeto consiste na modelação e implementação de um sistema de gestão hospitalar utilizando o banco de dados PostgreSQL. Inclui a criação do esquema relacional, inserção de dados e execução de queries úteis para a administração e operação de um hospital.
 
 ## 📚 Descrição
 
-O Hospital Management System (HMS) é um projeto que visa representar, de forma simplificada, como funcionaria a estrutura de dados de um hospital num sistema de banco de dados relacional. O sistema contempla as principais entidades envolvidas num hospital, como pacientes, médicos, enfermeiros, departamentos, internações e exames.
+O MedSync é um projeto que visa representar, de forma simplificada, como funcionaria a estrutura de dados de um hospital num sistema de banco de dados relacional. O sistema contempla as principais entidades envolvidas num hospital, como pacientes, médicos, enfermeiros, departamentos, internações e exames.
 
 ## 🛠️ Tecnologias Utilizadas
 
